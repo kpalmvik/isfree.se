@@ -19,6 +19,12 @@ module.exports = {
       test: /\.json$/
     }]
   },
+  node: {
+    console: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
   plugins: [
     // Avoid publishing files when compilation fails
     new webpack.NoErrorsPlugin()
