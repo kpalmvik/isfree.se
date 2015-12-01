@@ -30,7 +30,14 @@
   "rules": {
     "strict": 0,
     "no-empty": 0,
-    "indent": [2, 2, {"VariableDeclarator": { "var": 2, "let": 2, "const": 3}}],
+    "indent": [2, 2, {
+      "VariableDeclarator": {
+        "var": 2,
+        "let": 2,
+        "const": 3
+      },
+      "SwitchCase": 1
+    }],
     "quotes": [1, "single"],
     "no-multi-spaces": [1, {
       "exceptions": {
@@ -38,7 +45,9 @@
         "FunctionExpression": true
       }
     }],
-    "key-spacing": [0, {"align": "value"}],
+    "key-spacing": [0, {
+      "align": "value"
+    }],
     "no-underscore-dangle": 0
   }
 }
