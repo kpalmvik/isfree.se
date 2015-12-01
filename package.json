@@ -1,14 +1,22 @@
 {
   "name": "isfree.se",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Isfree",
+  "private": true,
   "scripts": {
-    "watch": "webpack --watch"
+    "start": "node ./bin/www"
   },
   "devDependencies": {
     "eslint": "1.10.2"
   },
   "dependencies": {
+    "express": "~4.13.3",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "jade": "~1.11.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0",
     "se-free": "0.1.0"
   }
 }
