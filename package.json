@@ -4,7 +4,7 @@
   "description": "Isfree",
   "private": true,
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "devDependencies": {
     "babel-cli": "6.2.0",
