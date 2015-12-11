@@ -1,10 +1,17 @@
 const router = require('express').Router();
 
-/* GET users listing. */
 router.get('/*', (req, res, next) => {
-  const domainName = parseDomainFromUrlPath(req.originalUrl);
+  const seFree = require('se-free'),
+        domainName = parseDomainFromUrlPath(req.originalUrl),
+        domainLookup = seFree(domainName);
 
-  res.send('Looking up ' + domainName);
+  domainLookup.then(
+    (domainLookupResult) => {
+      res.render('domain-lookup', {
+        domain: domainName,
+        result: domainLookupResult});
+    }
+  );
 });
 
 function parseDomainFromUrlPath(urlPath) {

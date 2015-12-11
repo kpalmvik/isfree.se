@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Domännamnet #{domain} är 
+    case result
+      when 'FREE'
+        | ledigt
+      when 'OCCUPIED'
+        | upptaget
+      when 'NOT_VALID'
+        | inte giltigt
