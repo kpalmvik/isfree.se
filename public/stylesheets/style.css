@@ -20,9 +20,11 @@ a {
 
 .title {
   font-size: 3rem;
+  line-height: 3.5rem;
 }
 
-.instructions {
+.instructions,
+.result-page__description {
   font-size: 1.3rem;
   line-height: 1.9rem;
   font-weight: normal;
@@ -30,7 +32,8 @@ a {
 }
 
 .example__title,
-.about__title {
+.about__title,
+.usage__title {
   font-weight: bold;
   font-size: 1.2rem;
   margin-top: 1.5rem;

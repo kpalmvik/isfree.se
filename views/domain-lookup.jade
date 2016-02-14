@@ -1,11 +1,13 @@
 extends layout
 
+block title
+  | Är domänen #{domain} ledig?
+
 block content
-  h1 Domännamnet #{domain} är 
-    case result
-      when 'FREE'
-        | ledigt
-      when 'OCCUPIED'
-        | upptaget
-      when 'NOT_VALID'
-        | inte giltigt
+  case result
+    when 'FREE'
+      include result-page/free
+    when 'OCCUPIED'
+      include result-page/occupied
+    when 'NOT_VALID'
+      include result-page/not-valid
