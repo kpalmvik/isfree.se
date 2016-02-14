@@ -8,6 +8,11 @@ body {
   padding: 1rem 2rem;
 }
 
+.content {
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
 a {
   color: #f2cc00;
   border-bottom: 2px solid #f2cc00;
