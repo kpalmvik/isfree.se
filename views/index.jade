@@ -3,12 +3,8 @@ extends layout
 block content
   header
     h1.title isfree.se
-    h2.instructions.
-      Besök
-      #[a.url(href='/example.se') isfree.se/example.se]
-      för att snabbt se om domänen
-      #[span.url-nolink example.se]
-      är upptagen eller ledig
+    h2.instructions
+      include instructions
   section.index-page__example
     h3.example__title Andra exempel
     ul.example__list
@@ -22,7 +18,7 @@ block content
         a(href='/_",:.se').url _",:.se
         |  är en ogiltig domän
   footer.index-page__about
-    h3.about__title Om Isfree.se
+    h3.about__title Om isfree.se
     p.about__text.
       Tjänsten utvecklas, uppdateras och sköts av 
       #[a(href='http://kristofer.palmvik.se') Kristofer Palmvik]
