@@ -1,33 +1,32 @@
 extends layout
 
 block content
-  .index-page
-    header
-      h1.title isfree.se
-      h2.instructions.
-        Besök
-        #[a.url(href='/example.se') isfree.se/example.se]
-        för att snabbt se om domänen
-        #[span.url-nolink example.se]
-        är upptagen eller ledig
-    section.index-page__example
-      h3.example__title Andra exempel
-      ul.example__list
-        li.example__list-item
-          a(href='/aftonbladet.se').url aftonbladet.se
-          |  är upptagen
-        li.example__list-item
-          a(href='/extremtledig.se').url extremtledig.se
-          |  är förmodligen ledig
-        li.example__list-item
-          a(href='/_",:.se').url _",:.se
-          |  är en ogiltig domän
-    footer.index-page__about
-      h3.about__title Om Isfree.se
-      p.about__text.
-        Tjänsten utvecklas, uppdateras och sköts av 
-        #[a(href='http://kristofer.palmvik.se') Kristofer Palmvik]
-        bara för att det är roligt.
+  header
+    h1.title isfree.se
+    h2.instructions.
+      Besök
+      #[a.url(href='/example.se') isfree.se/example.se]
+      för att snabbt se om domänen
+      #[span.url-nolink example.se]
+      är upptagen eller ledig
+  section.index-page__example
+    h3.example__title Andra exempel
+    ul.example__list
+      li.example__list-item
+        a(href='/aftonbladet.se').url aftonbladet.se
+        |  är upptagen
+      li.example__list-item
+        a(href='/extremtledig.se').url extremtledig.se
+        |  är förmodligen ledig
+      li.example__list-item
+        a(href='/_",:.se').url _",:.se
+        |  är en ogiltig domän
+  footer.index-page__about
+    h3.about__title Om Isfree.se
+    p.about__text.
+      Tjänsten utvecklas, uppdateras och sköts av 
+      #[a(href='http://kristofer.palmvik.se') Kristofer Palmvik]
+      bara för att det är roligt.
 
-      a(href='https://github.com/kpalmvik/isfree.se').about__source-code.
-        Källkod
+    a(href='https://github.com/kpalmvik/isfree.se').about__source-code.
+      Källkod
