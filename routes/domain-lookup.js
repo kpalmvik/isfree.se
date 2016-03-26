@@ -18,7 +18,8 @@ router.get('/*', (req, res, next) => {
 });
 
 function parseDomainFromUrlPath(urlPath) {
-  return urlPath.split('/')[1];
+  const URIEncodedDomainName = urlPath.split('/')[1]
+  return decodeURIComponent(URIEncodedDomainName);
 }
 
 function endsWithSe(domainName) {
