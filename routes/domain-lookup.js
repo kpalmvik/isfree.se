@@ -18,7 +18,8 @@ router.get('/*', (req, res, next) => {
 });
 
 function parseDomainFromUrlPath(urlPath) {
-  const URIEncodedDomainName = urlPath.split('/')[1]
+  // Everything after "isfree.se/" is considered as the domain
+  const URIEncodedDomainName = urlPath.substring(1);
   return decodeURIComponent(URIEncodedDomainName);
 }
 
