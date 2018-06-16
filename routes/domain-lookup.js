@@ -5,7 +5,7 @@ router.get('/*', (req, res, next) => {
         domainName = parseDomainFromUrlPath(req.originalUrl);
 
   if(!endsWithSe(domainName)) {
-    res.redirect(301, '/' + domainName + '.se');
+    return res.redirect(301, '/' + domainName + '.se');
   };
 
   seFree(domainName)
