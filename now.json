@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "isfree.se",
+  "routes": [
+    { "src": "/(.*)/(.*)", "dest": "/public/$1/$2" }
+  ],
+  "builds": [
+    { "src": "public/**/*", "use": "@now/static" },
+    { "src": "index.js", "use": "@now/node" }
+  ]
+}
