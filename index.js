@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import helmet from 'helmet';
 import index from './routes/index';
-import domainLookup from './routes/domain-lookup';
+import domainLookup from './routes/domainLookup';
 
 const app = express();
 
