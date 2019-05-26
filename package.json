@@ -1,14 +1,10 @@
 {
   "name": "isfree.se",
-  "version": "0.0.1",
-  "description": "Isfree",
+  "version": "0.0.2",
+  "description": "isfree.se",
   "private": true,
-  "engines": {
-    "node": "6.12.0"
-  },
   "scripts": {
-    "start": "node index.js",
-    "debug": "nodemon index.js"
+    "start": "node index.js"
   },
   "devDependencies": {
     "babel-preset-airbnb": "^2.5.1",
@@ -20,16 +16,9 @@
     "nodemon": "^1.9.1"
   },
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-register": "^6.26.0",
-    "body-parser": "^1.18.3",
-    "cookie-parser": "~1.4.1",
-    "debug": "^3.1.0",
     "express": "^4.16.3",
-    "morgan": "^1.9.0",
+    "helmet": "^3.18.0",
     "pug": "^2.0.3",
-    "se-free": "0.2.0",
-    "serve-favicon": "^2.5.0"
+    "se-free": "0.2.0"
   }
 }
