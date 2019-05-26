@@ -1,6 +1,8 @@
 import express from 'express';
 import path from 'path';
 import helmet from 'helmet';
+import index from './routes/index';
+import domainLookup from './routes/domain-lookup';
 
 const app = express();
 
@@ -10,8 +12,7 @@ app.set('view engine', 'pug');
 // add some security-related headers to the response
 app.use(helmet());
 
-app.get('/', (req, res, next) => {
-  res.send('Hello world!');
-});
+app.use('/', index);
+app.use('/*', domainLookup);
 
 export default app;
