@@ -1,10 +1,12 @@
-name = "isfree-se"
+name = "isfree-se-dev"
 type = "webpack"
-account_id = ""
+workers_dev = true
+webpack_config = "node_modules/flareact/webpack"
+
+[env.production]
+name = "isfree-se"
 workers_dev = false
 route = "edge.isfree.se/*"
-zone_id = ""
-webpack_config = "node_modules/flareact/webpack"
 
 [site]
 bucket = "out"
