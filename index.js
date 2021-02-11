@@ -1,4 +1,4 @@
-import { handleEvent } from "flareact";
+import { handleEvent } from 'flareact';
 
 /**
  * The DEBUG flag will do two things that help during development:
@@ -9,17 +9,15 @@ import { handleEvent } from "flareact";
  */
 const DEBUG = false;
 
-addEventListener("fetch", (event) => {
+addEventListener('fetch', (event) => {
   try {
     event.respondWith(
       handleEvent(
         event,
-        require.context("./pages/", true, /\.(js|jsx|ts|tsx)$/),
+        require.context('./pages/', true, /\.(js|jsx|ts|tsx)$/),
         DEBUG
       )
     );
-
-    return true;
   } catch (e) {
     if (DEBUG) {
       return event.respondWith(
@@ -28,8 +26,6 @@ addEventListener("fetch", (event) => {
         })
       );
     }
-    event.respondWith(new Response("Internal Error", { status: 500 }));
-
-    return false;
+    event.respondWith(new Response('Internal Error', { status: 500 }));
   }
 });
