@@ -1,8 +1,8 @@
 name = "isfree-se"
 type = "webpack"
 account_id = ""
-workers_dev = true
-route = ""
+workers_dev = false
+route = "edge.isfree.se/*"
 zone_id = ""
 webpack_config = "node_modules/flareact/webpack"
 
