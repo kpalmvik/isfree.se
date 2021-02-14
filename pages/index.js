@@ -26,8 +26,8 @@ export default function Index() {
             är förmodligen ledig
           </li>
           <li className="example__list-item">
-            <a href='/_",:.se' className="url">
-              _",:.se
+            <a href="/_,:.se" className="url">
+              _,:.se
             </a>{' '}
             är en ogiltig domän
           </li>
