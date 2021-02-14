@@ -6,7 +6,7 @@ const Layout = ({
 }) => (
   <div className="content">
     <Head>
-      <title>isfree.se | {pageTitleSuffix}</title>
+      <title>{`isfree.se | ${pageTitleSuffix}`}</title>
     </Head>
     {children}
   </div>
