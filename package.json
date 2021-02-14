@@ -9,7 +9,7 @@
     "deploy": "flareact publish"
   },
   "dependencies": {
-    "flareact": "^1.1.0",
+    "flareact": "^1.1.1-canary.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "se-free": "1.0.5"
