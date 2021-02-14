@@ -4,6 +4,6 @@ const description = {
   NOT_VALID: 'Den här domänen går av någon anledning inte att registrera',
 };
 
-const ResultDescription = ({ status }) => <p>{description[status]}</p>;
+const ResultDescription = ({ status }) => <>{description[status]}</>;
 
 export default ResultDescription;
