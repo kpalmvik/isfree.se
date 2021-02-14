@@ -1,21 +1,20 @@
+import seFree from 'se-free';
+
 import Layout from '../components/Layout';
 import Instructions from '../components/Instructions';
 import Result from '../components/Result';
 import ResultDescription from '../components/ResultDescription';
 
-const domainStatusEnum = ['FREE', 'OCCUPIED', 'NOT_VALID'];
-
 export async function getEdgeProps({ params }) {
   const { domain } = params;
-
-  const fakeRandomStatus =
-    domainStatusEnum[Math.floor(Math.random() * domainStatusEnum.length)];
+  const domainTld = `${domain}.se`;
+  const status = await seFree(domainTld);
 
   return {
     props: {
       domain,
-      domainTld: `${domain}.se`,
-      status: fakeRandomStatus,
+      domainTld,
+      status,
     },
     revalidate: 60, // Revalidate these props once every 60 seconds
   };
