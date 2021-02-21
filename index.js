@@ -9,8 +9,18 @@ import { handleEvent } from 'flareact';
  */
 const DEBUG = false;
 
+const doesNotContainSlashOrDot = (s) => /^\/((?!(\.|\/)).)+$/.test(s);
+
 addEventListener('fetch', (event) => {
   try {
+    const { request } = event;
+    const { pathname, origin } = new URL(request.url);
+
+    if (doesNotContainSlashOrDot(pathname)) {
+      const redirectUrl = `${origin}${pathname}.se`;
+      return event.respondWith(Response.redirect(redirectUrl, 301));
+    }
+
     event.respondWith(
       handleEvent(
         event,
