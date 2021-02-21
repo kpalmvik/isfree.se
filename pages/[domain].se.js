@@ -7,12 +7,12 @@ import ResultDescription from '../components/ResultDescription';
 
 export async function getEdgeProps({ params }) {
   const { domain } = params;
-  const domainTld = `${domain}.se`;
+  const uriDecodedDomain = decodeURI(domain);
+  const domainTld = `${uriDecodedDomain}.se`;
   const status = await seFree(domainTld);
 
   return {
     props: {
-      domain,
       domainTld,
       status,
     },
@@ -20,7 +20,7 @@ export async function getEdgeProps({ params }) {
   };
 }
 
-const DomainDotSePage = ({ domain, domainTld, status }) => (
+const DomainDotSePage = ({ domainTld, status }) => (
   <Layout pageTitleSuffix={`Är domänen ${domainTld} ledig?`}>
     <header>
       <h1 className="title">
