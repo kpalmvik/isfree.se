@@ -14,20 +14,20 @@ export default function Index() {
         <h3 className="example__title">Andra exempel</h3>
         <ul className="example__list">
           <li className="example__list-item">
-            <a href="/aftonbladet.se" className="url">
-              aftonbladet.se
+            <a href="/isfree" className="url">
+              isfree.se
             </a>{' '}
             är upptagen
           </li>
           <li className="example__list-item">
-            <a href="/extremtledig.se" className="url">
-              extremtledig.se
+            <a href="/ledig-doman" className="url">
+              ledig-doman.se
             </a>{' '}
             är förmodligen ledig
           </li>
           <li className="example__list-item">
-            <a href="/_,:.se" className="url">
-              _,:.se
+            <a href="/🦄" className="url">
+              🦄.se
             </a>{' '}
             är en ogiltig domän
           </li>
