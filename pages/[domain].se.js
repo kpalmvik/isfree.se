@@ -1,4 +1,5 @@
 import seFree from 'se-free';
+import PropTypes from 'prop-types';
 
 import Layout from '../components/Layout';
 import Instructions from '../components/Instructions';
@@ -40,5 +41,11 @@ const DomainDotSePage = ({ domainTld, status, noindex }) => (
     </footer>
   </Layout>
 );
+
+DomainDotSePage.propTypes = {
+  domainTld: PropTypes.string.isRequired,
+  status: PropTypes.oneOf(['FREE', 'OCCUPIED', 'NOT_VALID']).isRequired,
+  noindex: PropTypes.bool.isRequired,
+};
 
 export default DomainDotSePage;

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Result = ({ domainTld, status }) => {
   if (status === 'FREE') {
     return (
@@ -21,6 +23,11 @@ const Result = ({ domainTld, status }) => {
       domännamn!
     </>
   );
+};
+
+Result.propTypes = {
+  domainTld: PropTypes.string.isRequired,
+  status: PropTypes.oneOf(['FREE', 'OCCUPIED', 'NOT_VALID']).isRequired,
 };
 
 export default Result;

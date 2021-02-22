@@ -1,10 +1,7 @@
 import Head from 'flareact/head';
+import PropTypes from 'prop-types';
 
-const Layout = ({
-  pageTitleSuffix = 'Kolla snabbt om en svensk .se-domän är ledig!',
-  noindex = false,
-  children,
-}) => (
+const Layout = ({ pageTitleSuffix, noindex, children }) => (
   <>
     <div className="content">
       <Head>
@@ -26,5 +23,16 @@ const Layout = ({
     </div>
   </>
 );
+
+Layout.defaultProps = {
+  pageTitleSuffix: 'Kolla snabbt om en svensk .se-domän är ledig!',
+  noindex: false,
+};
+
+Layout.propTypes = {
+  pageTitleSuffix: PropTypes.string,
+  noindex: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+};
 
 export default Layout;
