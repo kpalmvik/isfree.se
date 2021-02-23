@@ -81,3 +81,8 @@ a {
    -webkit-hyphens: auto;
    hyphens: auto;
 }
+
+.updated-at {
+  padding-top: 1rem;
+  font-size: 0.8rem;
+}
