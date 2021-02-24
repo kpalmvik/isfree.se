@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 import Instructions from '../components/Instructions';
 import Result from '../components/Result';
 import ResultDescription from '../components/ResultDescription';
+import ResultWhois from '../components/ResultWhois';
 
 const allowIndexing = ['example.se', 'isfree.se', 'ledig-doman.se', '🦄.se'];
 
@@ -39,6 +40,7 @@ const DomainDotSePage = ({ domainTld, status, noindex, updatedAt }) => (
       <h2 className="result-page__description">
         <ResultDescription status={status} />
       </h2>
+      <ResultWhois status={status} domainTld={domainTld} />
     </header>
     <footer className="result-page__usage">
       <h3 className="usage__title">Hur använder jag isfree.se?</h3>
