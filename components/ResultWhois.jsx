@@ -2,7 +2,11 @@ import PropTypes from 'prop-types';
 
 const ResultWhois = ({ status, domainTld }) =>
   status === 'OCCUPIED' && (
-    <a href={`https://internetstiftelsen.se/sok-doman/?domain=${domainTld}`}>
+    <a
+      href={`https://internetstiftelsen.se/sok-doman/?domain=${encodeURIComponent(
+        domainTld
+      )}`}
+    >
       Se vem som registrerat {domainTld}
     </a>
   );
