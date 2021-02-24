@@ -11,7 +11,11 @@ import ResultWhois from '../components/ResultWhois';
 const allowIndexing = ['example.se', 'isfree.se', 'ledig-doman.se', '🦄.se'];
 
 const checkDomainStatus = async (domainTld) => {
-  return seFree(domainTld);
+  try {
+    return seFree(domainTld);
+  } catch (error) {
+    return 'NOT_VALID';
+  }
 };
 
 export async function getEdgeProps({ params }) {
