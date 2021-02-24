@@ -10,12 +10,20 @@ import ResultWhois from '../components/ResultWhois';
 
 const allowIndexing = ['example.se', 'isfree.se', 'ledig-doman.se', '🦄.se'];
 
+const checkDomainStatus = async (domainTld) => {
+  try {
+    return seFree(domainTld);
+  } catch (error) {
+    return 'NOT_VALID';
+  }
+};
+
 export async function getEdgeProps({ params }) {
   const { domain } = params;
   const uriDecodedDomain = decodeURI(domain);
   const domainTld = `${uriDecodedDomain}.se`;
   const noindex = !allowIndexing.includes(domainTld);
-  const status = await seFree(domainTld);
+  const status = await checkDomainStatus(domainTld);
   const updatedAt = DateTime.now()
     .setZone('Europe/Stockholm')
     .toFormat('yyyy-LL-dd T');
