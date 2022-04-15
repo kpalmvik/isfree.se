@@ -9,7 +9,7 @@
     "deploy": "flareact publish"
   },
   "dependencies": {
-    "flareact": "^1.1.1-canary.1",
+    "flareact": "^1.5.0",
     "luxon": "^2.2.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.1",
