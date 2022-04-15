@@ -27,6 +27,6 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "postcss": "^8.2.10",
-    "prettier": "^2.2.1"
+    "prettier": "^2.6.2"
   }
 }
