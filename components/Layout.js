@@ -7,17 +7,6 @@ const Layout = ({ pageTitleSuffix, noindex, children }) => (
       <Head>
         <title>{`isfree.se | ${pageTitleSuffix}`}</title>
         {noindex && <meta name="robots" content="noindex, follow" />}
-        <script>
-          {`
-            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-          `}
-        </script>
-        <script
-          src="https://www.google-analytics.com/analytics.js"
-          async
-          defer
-        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
