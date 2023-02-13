@@ -2,7 +2,8 @@ import Head from 'flareact/head';
 import PropTypes from 'prop-types';
 
 function Layout({ pageTitleSuffix, noindex, children }) {
-  return <div className="content">
+  return (
+    <div className="content">
       <Head>
         <title>{`isfree.se | ${pageTitleSuffix}`}</title>
         {noindex && <meta name="robots" content="noindex, follow" />}
@@ -27,6 +28,7 @@ function Layout({ pageTitleSuffix, noindex, children }) {
       </Head>
       {children}
     </div>
+  );
 }
 
 Layout.defaultProps = {

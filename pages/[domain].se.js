@@ -40,22 +40,27 @@ export async function getEdgeProps({ params }) {
 }
 
 function DomainDotSePage({ domainTld, status, noindex, updatedAt }) {
-  return <Layout pageTitleSuffix={`Är domänen ${domainTld} ledig?`} noindex={noindex}>
-    <header>
-      <h1 className="title">
-        <Result domainTld={domainTld} status={status} />
-      </h1>
-      <h2 className="result-page__description">
-        <ResultDescription status={status} />
-      </h2>
-      <ResultWhois status={status} domainTld={domainTld} />
-    </header>
-    <footer className="result-page__usage">
-      <h3 className="usage__title">Hur använder jag isfree.se?</h3>
-      <Instructions />
-      <div className="updated-at">Informationen uppdaterades {updatedAt}</div>
-    </footer>
-  </Layout>
+  return (
+    <Layout
+      pageTitleSuffix={`Är domänen ${domainTld} ledig?`}
+      noindex={noindex}
+    >
+      <header>
+        <h1 className="title">
+          <Result domainTld={domainTld} status={status} />
+        </h1>
+        <h2 className="result-page__description">
+          <ResultDescription status={status} />
+        </h2>
+        <ResultWhois status={status} domainTld={domainTld} />
+      </header>
+      <footer className="result-page__usage">
+        <h3 className="usage__title">Hur använder jag isfree.se?</h3>
+        <Instructions />
+        <div className="updated-at">Informationen uppdaterades {updatedAt}</div>
+      </footer>
+    </Layout>
+  );
 }
 
 DomainDotSePage.propTypes = {
