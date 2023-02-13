@@ -1,4 +1,5 @@
-:root, body {
+:root,
+body {
   min-height: 100vh;
   color: #f2f2f2;
 }
@@ -71,15 +72,15 @@ a {
   color: #f2cc00;
 
   /* https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
-   overflow-wrap: break-word;
-   word-wrap: break-word;
-   -ms-word-break: break-all;
-   word-break: break-all;
-   word-break: break-word;
-   -ms-hyphens: auto;
-   -moz-hyphens: auto;
-   -webkit-hyphens: auto;
-   hyphens: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .updated-at {

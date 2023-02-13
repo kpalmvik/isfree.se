@@ -39,8 +39,8 @@ export async function getEdgeProps({ params }) {
   };
 }
 
-const DomainDotSePage = ({ domainTld, status, noindex, updatedAt }) => (
-  <Layout pageTitleSuffix={`Är domänen ${domainTld} ledig?`} noindex={noindex}>
+function DomainDotSePage({ domainTld, status, noindex, updatedAt }) {
+  return <Layout pageTitleSuffix={`Är domänen ${domainTld} ledig?`} noindex={noindex}>
     <header>
       <h1 className="title">
         <Result domainTld={domainTld} status={status} />
@@ -56,7 +56,7 @@ const DomainDotSePage = ({ domainTld, status, noindex, updatedAt }) => (
       <div className="updated-at">Informationen uppdaterades {updatedAt}</div>
     </footer>
   </Layout>
-);
+}
 
 DomainDotSePage.propTypes = {
   domainTld: PropTypes.string.isRequired,

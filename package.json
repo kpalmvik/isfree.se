@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "flareact dev",
     "build": "flareact build",
-    "deploy": "flareact publish"
+    "deploy": "flareact publish",
+    "prettier": "prettier -c .",
+    "lint": "npx eslint ."
   },
   "dependencies": {
     "flareact": "^1.5.0",

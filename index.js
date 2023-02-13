@@ -11,6 +11,7 @@ const DEBUG = false;
 
 const doesNotContainSlashOrDot = (s) => /^\/((?!(\.|\/)).)+$/.test(s);
 
+// eslint-disable-next-line no-restricted-globals, consistent-return
 addEventListener('fetch', (event) => {
   try {
     const { request } = event;

@@ -1,9 +1,8 @@
 import Head from 'flareact/head';
 import PropTypes from 'prop-types';
 
-const Layout = ({ pageTitleSuffix, noindex, children }) => (
-  <>
-    <div className="content">
+function Layout({ pageTitleSuffix, noindex, children }) {
+  return <div className="content">
       <Head>
         <title>{`isfree.se | ${pageTitleSuffix}`}</title>
         {noindex && <meta name="robots" content="noindex, follow" />}
@@ -24,12 +23,11 @@ const Layout = ({ pageTitleSuffix, noindex, children }) => (
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <link rel="manifest" href="/site.webmanifest"></link>
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       {children}
     </div>
-  </>
-);
+}
 
 Layout.defaultProps = {
   pageTitleSuffix: 'Kolla snabbt om en svensk .se-domän är ledig!',
