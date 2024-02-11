@@ -99,13 +99,10 @@ node_modules
 bundle.js
 bundle.js.map
 
-.now
-
-# Flareact
-out/*
-!out/.gitkeep
-/dist
-/worker
-
 # local env files
 .env
+
+# Hono
+dist
+.wrangler
+.dev.vars
