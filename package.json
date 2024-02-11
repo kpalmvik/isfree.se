@@ -5,10 +5,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
+    "deploy": "$npm_execpath run build && wrangler pages deploy dist",
+    "dev": "vite",
+    "lint": "eslint . --ext=.js,.jsx,.ts,.tsx --max-warnings=0",
+    "prettier": "npx prettier . --check",
     "preview": "wrangler pages dev dist",
-    "deploy": "$npm_execpath run build && wrangler pages deploy dist"
+    "typecheck": "npx tsc --noEmit --skipLibCheck --project ."
   },
   "dependencies": {
     "hono": "^4.0.1",
@@ -16,8 +19,14 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240129.0",
+    "@eslint/js": "^8.56.0",
     "@hono/vite-cloudflare-pages": "^0.2.4",
     "@hono/vite-dev-server": "^0.5.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
     "vite": "^5.0.12",
     "wrangler": "^3.25.0"
   }

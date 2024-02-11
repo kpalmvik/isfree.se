@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Result = ({ domainTld, status }) => {
-  if (status === 'FREE') {
+  if (status === "FREE") {
     return (
       <>
         <span className="url-nolink">{domainTld}</span> är ledig!
@@ -9,7 +9,7 @@ const Result = ({ domainTld, status }) => {
     );
   }
 
-  if (status === 'OCCUPIED') {
+  if (status === "OCCUPIED") {
     return (
       <>
         <span className="url-nolink">{domainTld}</span> är upptagen!
@@ -27,7 +27,7 @@ const Result = ({ domainTld, status }) => {
 
 Result.propTypes = {
   domainTld: PropTypes.string.isRequired,
-  status: PropTypes.oneOf(['FREE', 'OCCUPIED', 'NOT_VALID']).isRequired,
+  status: PropTypes.oneOf(["FREE", "OCCUPIED", "NOT_VALID"]).isRequired,
 };
 
 export default Result;

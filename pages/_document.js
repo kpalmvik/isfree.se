@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, FlareactScript } from 'flareact/document';
+import Document, { Html, Head, Main, FlareactScript } from "flareact/document";
 
 class MyDocument extends Document {
   static async getEdgeProps(ctx) {

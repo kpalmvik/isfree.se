@@ -1,20 +1,20 @@
-import seFree from 'se-free';
-import PropTypes from 'prop-types';
-import { DateTime } from 'luxon';
+import seFree from "se-free";
+import PropTypes from "prop-types";
+import { DateTime } from "luxon";
 
-import Layout from '../components/Layout';
-import Instructions from '../components/Instructions';
-import Result from '../components/Result';
-import ResultDescription from '../components/ResultDescription';
-import ResultWhois from '../components/ResultWhois';
+import Layout from "../components/Layout";
+import Instructions from "../components/Instructions";
+import Result from "../components/Result";
+import ResultDescription from "../components/ResultDescription";
+import ResultWhois from "../components/ResultWhois";
 
-const allowIndexing = ['example.se', 'isfree.se', 'ledig-doman.se', '🦄.se'];
+const allowIndexing = ["example.se", "isfree.se", "ledig-doman.se", "🦄.se"];
 
 const checkDomainStatus = async (domainTld) => {
   try {
     return seFree(domainTld);
   } catch (error) {
-    return 'NOT_VALID';
+    return "NOT_VALID";
   }
 };
 
@@ -25,8 +25,8 @@ export async function getEdgeProps({ params }) {
   const noindex = !allowIndexing.includes(domainTld);
   const status = await checkDomainStatus(domainTld);
   const updatedAt = DateTime.now()
-    .setZone('Europe/Stockholm')
-    .toFormat('yyyy-LL-dd T');
+    .setZone("Europe/Stockholm")
+    .toFormat("yyyy-LL-dd T");
 
   return {
     props: {
@@ -65,7 +65,7 @@ function DomainDotSePage({ domainTld, status, noindex, updatedAt }) {
 
 DomainDotSePage.propTypes = {
   domainTld: PropTypes.string.isRequired,
-  status: PropTypes.oneOf(['FREE', 'OCCUPIED', 'NOT_VALID']).isRequired,
+  status: PropTypes.oneOf(["FREE", "OCCUPIED", "NOT_VALID"]).isRequired,
   noindex: PropTypes.bool.isRequired,
   updatedAt: PropTypes.string.isRequired,
 };

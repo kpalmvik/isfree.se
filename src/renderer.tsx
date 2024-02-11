@@ -1,4 +1,4 @@
-import { jsxRenderer } from 'hono/jsx-renderer'
+import { jsxRenderer } from "hono/jsx-renderer";
 
 export const renderer = jsxRenderer(
   ({ children, title }) => {
@@ -10,9 +10,9 @@ export const renderer = jsxRenderer(
         </head>
         <body>{children}</body>
       </html>
-    )
+    );
   },
   {
-    docType: true
-  }
-)
+    docType: true,
+  },
+);

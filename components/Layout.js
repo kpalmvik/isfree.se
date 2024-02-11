@@ -1,5 +1,5 @@
-import Head from 'flareact/head';
-import PropTypes from 'prop-types';
+import Head from "flareact/head";
+import PropTypes from "prop-types";
 
 function Layout({ pageTitleSuffix, noindex, children }) {
   return (
@@ -32,7 +32,7 @@ function Layout({ pageTitleSuffix, noindex, children }) {
 }
 
 Layout.defaultProps = {
-  pageTitleSuffix: 'Kolla snabbt om en svensk .se-domän är ledig!',
+  pageTitleSuffix: "Kolla snabbt om en svensk .se-domän är ledig!",
   noindex: false,
 };
 

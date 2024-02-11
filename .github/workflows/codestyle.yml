@@ -7,14 +7,15 @@ jobs:
   codestyle:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18.17.1'
-          cache: 'yarn'
-      - name: Install packages 📦
-        run: yarn install --frozen-lockfile
-      - name: Prettier (code formatting)
-        run: yarn run prettier
-      - name: ESLint (JavaScript linting)
-        run: yarn run lint
+          node-version: "latest"
+      - name: Install packages
+        run: npm ci
+      - name: Prettier
+        run: npm run prettier
+      - name: ESLint
+        run: npm run lint
+      - name: TypeCheck
+        run: npm run typecheck

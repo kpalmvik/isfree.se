@@ -1,5 +1,5 @@
-import Layout from '../components/Layout';
-import Instructions from '../components/Instructions';
+import Layout from "../components/Layout";
+import Instructions from "../components/Instructions";
 
 export default function Index() {
   return (
@@ -16,19 +16,19 @@ export default function Index() {
           <li className="example__list-item">
             <a href="/isfree" className="url">
               isfree.se
-            </a>{' '}
+            </a>{" "}
             är upptagen
           </li>
           <li className="example__list-item">
             <a href="/ledig-doman" className="url">
               ledig-doman.se
-            </a>{' '}
+            </a>{" "}
             är förmodligen ledig
           </li>
           <li className="example__list-item">
             <a href="/🦄" className="url">
               🦄.se
-            </a>{' '}
+            </a>{" "}
             är en ogiltig domän
           </li>
         </ul>
@@ -36,7 +36,7 @@ export default function Index() {
       <footer className="index-page__about">
         <h3 className="about__title">Om isfree.se</h3>
         <p className="about__text">
-          Tjänsten utvecklas, uppdateras och sköts av{' '}
+          Tjänsten utvecklas, uppdateras och sköts av{" "}
           <a href="https://kristofer.palmvik.se">Kristofer Palmvik</a> bara för
           att det är roligt.
         </p>
