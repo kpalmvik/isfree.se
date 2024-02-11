@@ -19,11 +19,18 @@ module.exports = {
         ecmaVersion: "latest",
       },
     },
+    {
+      files: "*.test.{js,cjs,ts}",
+      env: {
+        node: true,
+        jest: true,
+      },
+    },
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "jest"],
 };
