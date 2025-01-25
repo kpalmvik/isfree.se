@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://isfree.se/sitemap.xml
