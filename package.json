@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify"
+    "deploy": "wrangler deploy --minify",
+    "deploy-staging": "wrangler deploy --env staging --minify"
   },
   "dependencies": {
     "hono": "^4.6.18"
