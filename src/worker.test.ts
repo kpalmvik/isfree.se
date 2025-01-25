@@ -1,6 +1,6 @@
 import { env } from "cloudflare:test";
 import { describe, expect, test } from "vitest";
-import worker from "../src/index.tsx";
+import worker from "./worker.tsx";
 
 describe("isfree.se", () => {
   describe("GET /", () => {

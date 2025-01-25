@@ -1,5 +1,5 @@
 name = "isfree-se"
-main = "src/index.tsx"
+main = "src/worker.tsx"
 compatibility_date = "2025-01-24"
 
 [env.production]
