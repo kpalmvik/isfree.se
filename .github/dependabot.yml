@@ -1,14 +1,19 @@
 version: 2
 updates:
   # Enable version updates for npm
-  - package-ecosystem: 'npm'
+  - package-ecosystem: "npm"
     # Look for `package.json` and `lock` files in the `root` directory
-    directory: '/'
+    directory: "/"
     # Check the npm registry for updates every day (weekdays)
     schedule:
-      interval: 'weekly'
-      day: 'monday'
-      time: '02:00'
+      interval: "weekly"
+      day: "monday"
+      time: "02:00"
     open-pull-requests-limit: 20
     reviewers:
-      - 'kpalmvik'
+      - "kpalmvik"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
