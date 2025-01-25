@@ -7,14 +7,14 @@ app.get("/", (c) => {
   return c.text("Hello Hono!");
 });
 
-app.get("/:domain{.+(.se)$}", (c) => {
+app.get("/:domain{([^/]+.se)$}", (c) => {
   const domain = c.req.param("domain");
   return c.html(
     html`<!DOCTYPE html>
-      <h1>Looking up! ${domain}!</h1>`
+      <h1>Looking up ${domain}!</h1>`
   );
 });
 
-app.get("/:domain{[^.]+}", (c) => c.redirect(`/${c.req.param("domain")}.se`));
+app.get("/:domain{[^/]+}", (c) => c.redirect(`/${c.req.param("domain")}.se`));
 
 export default app;

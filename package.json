@@ -6,13 +6,16 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
-    "deploy-staging": "wrangler deploy --env staging --minify"
+    "deploy-staging": "wrangler deploy --env staging --minify",
+    "test": "vitest --run"
   },
   "dependencies": {
     "hono": "^4.6.18"
   },
   "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.6.7",
     "@cloudflare/workers-types": "^4.20250109.0",
+    "vitest": "^2.1.8",
     "wrangler": "^3.101.0"
   }
 }
