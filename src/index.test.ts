@@ -70,5 +70,10 @@ describe("isfree.se", () => {
       const res = await worker.request("/😁.se", {}, env);
       await expectLookupPage(res, "😁.se");
     });
+
+    test("404 on /example.se/something", async () => {
+      const res = await worker.request("/example.se/something", {}, env);
+      expect(res.status).toBe(404);
+    });
   });
 });
