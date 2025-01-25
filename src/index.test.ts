@@ -1,6 +1,6 @@
 import { env } from "cloudflare:test";
 import { describe, expect, test } from "vitest";
-import worker from "../src/index";
+import worker from "../src/index.tsx";
 
 describe("isfree.se", () => {
   describe("GET /", () => {
@@ -8,7 +8,7 @@ describe("isfree.se", () => {
       const res = await worker.request("/", {}, env);
       expect(res.status).toBe(200);
       const body = await res.text();
-      expect(body).toContain("Hello Hono!");
+      expect(body).toContain("Welcome to isfree.se");
     });
   });
 
@@ -49,6 +49,9 @@ describe("isfree.se", () => {
       expect(res.status).toBe(200);
       const body = await res.text();
       expect(body).toContain(`<h1>Looking up ${domain}!</h1>`);
+      expect(body).toContain(
+        `<title>isfree.se | Är domänen ${domain} ledig?</title>`
+      );
     };
 
     test("returns a lookup page for example.se", async () => {
