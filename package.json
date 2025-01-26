@@ -16,7 +16,8 @@
     "typecheck": "npx tsc --build --noEmit"
   },
   "dependencies": {
-    "hono": "^4.6.18"
+    "hono": "^4.6.18",
+    "luxon": "^3.5.0"
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.6.7",
@@ -24,6 +25,7 @@
     "@eslint/js": "^9.19.0",
     "@testing-library/react": "^16.2.0",
     "@types/eslint-plugin-jsx-a11y": "^6.10.0",
+    "@types/luxon": "^3.4.2",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "eslint": "^9.19.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",

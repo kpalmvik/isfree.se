@@ -1,3 +1,5 @@
+import { DateTime } from "luxon";
+
 import Instructions from "../components/Instructions";
 import Result from "../components/Result";
 import ResultDescription from "../components/ResultDescription";
@@ -5,7 +7,9 @@ import ResultWhois from "../components/ResultWhois";
 
 const Domain = ({ domain }: { domain: string }) => {
   const status = "FREE";
-  const updatedAt = "nyss";
+  const updatedAt = DateTime.now()
+    .setZone("Europe/Stockholm")
+    .toFormat("yyyy-LL-dd T");
 
   return (
     <>
