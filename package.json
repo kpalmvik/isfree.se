@@ -10,7 +10,8 @@
     "deploy-staging": "wrangler deploy --env staging --minify",
     "test:react": "vitest -c vitest.react.config.ts --run",
     "test:worker": "vitest -c vitest.worker.config.ts --run",
-    "test": "npm run test:react && npm run test:worker"
+    "test": "npm run test:react && npm run test:worker",
+    "typecheck": "npx tsc --build --noEmit"
   },
   "dependencies": {
     "hono": "^4.6.18"
@@ -21,6 +22,7 @@
     "@testing-library/react": "^16.2.0",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "jsdom": "^26.0.0",
+    "typescript": "^5.7.3",
     "vitest": "^2.1.8",
     "wrangler": "^3.101.0"
   }

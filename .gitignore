@@ -29,5 +29,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# TypeScript cache
+*.tsbuildinfo
+
 # misc
 .DS_Store
