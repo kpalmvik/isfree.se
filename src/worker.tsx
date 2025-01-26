@@ -59,7 +59,7 @@ app.get("/:domain{([^/]+.se)$}", async (c) => {
 });
 
 app.get("/:domain{[^/]+}", (c) =>
-  c.redirect(`/${encodeURIComponent(c.req.param("domain"))}.se`),
+  c.redirect(`/${encodeURIComponent(c.req.param("domain"))}.se`, 301),
 );
 
 export default app;

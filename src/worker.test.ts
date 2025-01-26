@@ -33,7 +33,7 @@ describe("isfree.se", () => {
 
   describe("GET /domain without .se suffix", () => {
     const expectRedirect = (res: Response, location: string) => {
-      expect(res.status).toBe(302);
+      expect(res.status).toBe(301);
       expect(res.headers.get("Location")).toBe(location);
     };
 
