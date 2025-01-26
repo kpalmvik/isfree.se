@@ -8,5 +8,6 @@ export default defineConfig({
     include: ["./src/pages/*.test.tsx", "./src/components/*.test.tsx"],
     globals: true,
     environment: "jsdom",
+    setupFiles: ["./vitest-setup.ts"],
   },
 });
