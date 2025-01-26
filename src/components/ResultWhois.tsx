@@ -1,14 +1,4 @@
-const ResultWhois = ({
-  status,
-  domain,
-}: {
-  status: Status;
-  domain: string;
-}) => {
-  if (status !== "OCCUPIED") {
-    return null;
-  }
-
+const ResultWhois = ({ domain }: { domain: string }) => {
   return (
     <a
       href={`https://internetstiftelsen.se/sok-doman/?domain=${encodeURIComponent(

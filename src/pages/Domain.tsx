@@ -19,7 +19,7 @@ const Domain = ({ domain, status }: { domain: string; status: Status }) => {
         <h2 className="result-page__description">
           <ResultDescription status={status} />
         </h2>
-        <ResultWhois status={status} domain={domain} />
+        {status === "OCCUPIED" && <ResultWhois domain={domain} />}
       </header>
       <footer className="result-page__usage">
         <h3 className="usage__title">Hur använder jag isfree.se?</h3>
