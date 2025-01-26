@@ -12,6 +12,7 @@ jobs:
         with:
           node-version: "lts/*"
           cache: npm
+      - run: npm ci --no-fund
       - run: npm run typecheck
-      - run: npm cit --no-fund
+      - run: npm test
 
