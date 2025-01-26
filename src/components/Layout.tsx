@@ -8,6 +8,7 @@ const Layout: FC = ({
   <html lang="sv-SE">
     <head>
       <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>isfree.se | {pageTitleSuffix}</title>
       {noindex && <meta name="robots" content="noindex, follow" />}
     </head>
