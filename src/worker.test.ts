@@ -138,14 +138,22 @@ describe("isfree.se", () => {
     });
 
     test("has a noindex follow robots directive", async () => {
-      mockResponse("example.se", "FREE");
-      const res = await worker.request("/example.se", {}, env);
+      mockResponse("some-random-domain.se", "FREE");
+      const res = await worker.request("/some-random-domain.se", {}, env);
       const body = await res.text();
 
       expect(body).toContain('<meta name="robots" content="noindex, follow"/>');
     });
 
     describe("with a domain among the linked examples", () => {
+      test("example.se can be indexed", async () => {
+        mockResponse("example.se", "OCCUPIED");
+        const res = await worker.request("/example.se", {}, env);
+        const body = await res.text();
+
+        expect(body).not.toContain("noindex");
+      });
+
       test("isfree.se can be indexed", async () => {
         mockResponse("isfree.se", "OCCUPIED");
         const res = await worker.request("/isfree.se", {}, env);

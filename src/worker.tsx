@@ -45,7 +45,12 @@ app.get("/", (c) => c.render(<Index />, {}));
 app.get("/:domain{([^/]+.se)$}", async (c) => {
   const domain = c.req.param("domain");
   const status = await checkDomainStatus(domain);
-  const allowIndexingDomains = ["isfree.se", "ledig-doman.se", "🦄.se"];
+  const allowIndexingDomains = [
+    "example.se",
+    "isfree.se",
+    "ledig-doman.se",
+    "🦄.se",
+  ];
 
   return c.render(<Domain domain={domain} status={status} />, {
     pageTitleSuffix: `Är domänen ${domain} ledig?`,
