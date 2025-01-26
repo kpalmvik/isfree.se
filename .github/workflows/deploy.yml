@@ -3,29 +3,22 @@ name: Deploy
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    name: Deploy isfree.se
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18.17.1'
-          cache: 'yarn'
-      - name: Install packages 📦
-        run: yarn install --frozen-lockfile
-      - name: Build 🛠
-        run: yarn build
-      - name: Publish 📰
-        uses: cloudflare/wrangler-action@1.2.0
+          node-version: "lts/*"
+          cache: "npm"
+      - name: Install dependencies 📦
+        run: npm ci
+      - name: Deploy to Cloudflare Workers 🚀
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          environment: 'production'
-        env:
-          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
-          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
-          IS_WORKER: true

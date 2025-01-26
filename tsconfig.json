@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": ["ESNext"],
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "types": [
+      "vitest/globals",
+      "@cloudflare/workers-types/experimental",
+      "@cloudflare/vitest-pool-workers"
+    ],
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx"
+  }
+}

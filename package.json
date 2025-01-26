@@ -1,34 +1,43 @@
 {
   "name": "isfree.se",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "isfree.se",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "flareact dev",
-    "build": "flareact build",
-    "deploy": "flareact publish",
-    "prettier": "prettier -c .",
-    "lint": "npx eslint ."
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "deploy-staging": "wrangler deploy --env staging --minify",
+    "lint": "npx eslint",
+    "prettier": "npx prettier . --check",
+    "test:react": "vitest -c vitest.react.config.ts --run",
+    "test:worker": "vitest -c vitest.worker.config.ts --run",
+    "test": "npm run test:react && npm run test:worker",
+    "typecheck": "npx tsc --build --noEmit"
   },
   "dependencies": {
-    "flareact": "^1.5.0",
-    "luxon": "^3.5.0",
-    "prop-types": "^15.8.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "se-free": "1.0.5"
+    "hono": "^4.6.18",
+    "idna-uts46-hx": "^6.0.6",
+    "luxon": "^3.5.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^8.57.1",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-import": "^2.31.0",
+    "@cloudflare/vitest-pool-workers": "^0.6.7",
+    "@cloudflare/workers-types": "^4.20250109.0",
+    "@eslint/js": "^9.19.0",
+    "@testing-library/react": "^16.2.0",
+    "@types/eslint-plugin-jsx-a11y": "^6.10.0",
+    "@types/luxon": "^3.4.2",
+    "@types/punycode": "^2.1.4",
+    "@vitejs/plugin-react-swc": "^3.7.2",
+    "eslint": "^9.19.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "postcss": "^8.5.1",
-    "prettier": "^3.4.2"
+    "globals": "^15.14.0",
+    "jsdom": "^26.0.0",
+    "prettier": "3.4.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.21.0",
+    "vitest": "^2.1.8",
+    "wrangler": "^3.101.0"
   }
 }
