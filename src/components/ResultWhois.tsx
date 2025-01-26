@@ -12,7 +12,7 @@ const ResultWhois = ({
   return (
     <a
       href={`https://internetstiftelsen.se/sok-doman/?domain=${encodeURIComponent(
-        domain
+        domain,
       )}`}
     >
       Se vem som registrerat {domain}

@@ -5,5 +5,5 @@ export default tseslint.config(
   { ignores: ["node_modules", ".wrangler"] },
   eslint.configs.recommended,
   tseslint.configs.strict,
-  tseslint.configs.stylistic
+  tseslint.configs.stylistic,
 );

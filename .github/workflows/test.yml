@@ -14,6 +14,8 @@ jobs:
           cache: npm
       - name: Install dependencies 📦
         run: npm ci --no-fund
+      - name: Prettier 💅
+        run: npm run prettier
       - name: Lint code 🧹
         run: npm run lint
       - name: Check TypeScript types 🕵️️

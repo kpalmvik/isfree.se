@@ -13,7 +13,7 @@ describe("isfree.se", () => {
       const res = await worker.request("/", {}, env);
       const body = await res.text();
       expect(body).toContain(
-        "<title>isfree.se | Kolla snabbt om en svensk .se-domän är ledig!</title>"
+        "<title>isfree.se | Kolla snabbt om en svensk .se-domän är ledig!</title>",
       );
     });
 
@@ -61,10 +61,10 @@ describe("isfree.se", () => {
       expect(res.status).toBe(200);
       const body = await res.text();
       expect(body).toContain(
-        `<h1 class="title"><span class="url-nolink">${domain}</span> är ledig!</h1>`
+        `<h1 class="title"><span class="url-nolink">${domain}</span> är ledig!</h1>`,
       );
       expect(body).toContain(
-        `<title>isfree.se | Är domänen ${domain} ledig?</title>`
+        `<title>isfree.se | Är domänen ${domain} ledig?</title>`,
       );
     };
 

@@ -10,7 +10,7 @@ declare module "hono" {
     // eslint-disable-next-line @typescript-eslint/prefer-function-type
     (
       content: string | Promise<string>,
-      props: { pageTitleSuffix?: string; noindex?: boolean }
+      props: { pageTitleSuffix?: string; noindex?: boolean },
     ): Response;
   }
 }
@@ -27,8 +27,8 @@ app.get(
     ),
     {
       docType: "<!DOCTYPE html>",
-    }
-  )
+    },
+  ),
 );
 
 app.get("/", (c) => c.render(<Index />, {}));
