@@ -144,5 +144,31 @@ describe("isfree.se", () => {
 
       expect(body).toContain('<meta name="robots" content="noindex, follow"/>');
     });
+
+    describe("with a domain among the linked examples", () => {
+      test("isfree.se can be indexed", async () => {
+        mockResponse("isfree.se", "OCCUPIED");
+        const res = await worker.request("/isfree.se", {}, env);
+        const body = await res.text();
+
+        expect(body).not.toContain("noindex");
+      });
+
+      test("ledig-doman.se can be indexed", async () => {
+        mockResponse("ledig-doman.se", "FREE");
+        const res = await worker.request("/ledig-doman.se", {}, env);
+        const body = await res.text();
+
+        expect(body).not.toContain("noindex");
+      });
+
+      test("🦄.se can be indexed", async () => {
+        mockResponse("xn--3s9h.se", "NOT_VALID");
+        const res = await worker.request("/🦄.se", {}, env);
+        const body = await res.text();
+
+        expect(body).not.toContain("noindex");
+      });
+    });
   });
 });
