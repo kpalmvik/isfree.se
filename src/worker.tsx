@@ -9,7 +9,7 @@ declare module "hono" {
   interface ContextRenderer {
     (
       content: string | Promise<string>,
-      props: { pageTitleSuffix?: string }
+      props: { pageTitleSuffix?: string; noindex?: boolean }
     ): Response;
   }
 }
@@ -19,8 +19,10 @@ const app = new Hono();
 app.get(
   "/*",
   jsxRenderer(
-    ({ pageTitleSuffix, children }) => (
-      <Layout pageTitleSuffix={pageTitleSuffix}>{children}</Layout>
+    ({ pageTitleSuffix, noindex, children }) => (
+      <Layout pageTitleSuffix={pageTitleSuffix} noindex={noindex}>
+        {children}
+      </Layout>
     ),
     {
       docType: "<!DOCTYPE html>",
@@ -35,6 +37,7 @@ app.get("/:domain{([^/]+.se)$}", (c) => {
 
   return c.render(<Domain domain={domain} />, {
     pageTitleSuffix: `Är domänen ${domain} ledig?`,
+    noindex: true,
   });
 });
 

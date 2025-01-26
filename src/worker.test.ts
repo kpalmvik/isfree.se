@@ -78,5 +78,12 @@ describe("isfree.se", () => {
       const res = await worker.request("/example.se/something", {}, env);
       expect(res.status).toBe(404);
     });
+
+    test("has a noindex follow robots directive", async () => {
+      const res = await worker.request("/example.se", {}, env);
+      const body = await res.text();
+
+      expect(body).toContain('<meta name="robots" content="noindex, follow"/>');
+    });
   });
 });
