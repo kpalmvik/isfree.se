@@ -2,7 +2,7 @@ const ResultWhois = ({
   status,
   domain,
 }: {
-  status: "FREE" | "OCCUPIED" | "NOT_VALID";
+  status: Status;
   domain: string;
 }) => {
   if (status !== "OCCUPIED") {

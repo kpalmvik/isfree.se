@@ -4,6 +4,7 @@ import { jsxRenderer } from "hono/jsx-renderer";
 import Domain from "./pages/Domain";
 import Index from "./pages/Index";
 import Layout from "./components/Layout";
+import seFreeLocal from "./seFreeLocal";
 
 declare module "hono" {
   interface ContextRenderer {
@@ -14,6 +15,14 @@ declare module "hono" {
     ): Response;
   }
 }
+
+const checkDomainStatus = async (domain: string) => {
+  try {
+    return seFreeLocal(domain);
+  } catch {
+    return "NOT_VALID";
+  }
+};
 
 const app = new Hono();
 
@@ -33,15 +42,18 @@ app.get(
 
 app.get("/", (c) => c.render(<Index />, {}));
 
-app.get("/:domain{([^/]+.se)$}", (c) => {
+app.get("/:domain{([^/]+.se)$}", async (c) => {
   const domain = c.req.param("domain");
+  const status = await checkDomainStatus(domain);
 
-  return c.render(<Domain domain={domain} />, {
+  return c.render(<Domain domain={domain} status={status} />, {
     pageTitleSuffix: `Är domänen ${domain} ledig?`,
     noindex: true,
   });
 });
 
-app.get("/:domain{[^/]+}", (c) => c.redirect(`/${c.req.param("domain")}.se`));
+app.get("/:domain{[^/]+}", (c) =>
+  c.redirect(`/${encodeURIComponent(c.req.param("domain"))}.se`),
+);
 
 export default app;

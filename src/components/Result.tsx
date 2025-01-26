@@ -1,10 +1,4 @@
-const Result = ({
-  domain,
-  status,
-}: {
-  domain: string;
-  status: "FREE" | "OCCUPIED" | "NOT_VALID";
-}) => {
+const Result = ({ domain, status }: { domain: string; status: Status }) => {
   if (status === "FREE") {
     return (
       <>

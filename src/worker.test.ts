@@ -1,6 +1,13 @@
-import { env } from "cloudflare:test";
-import { describe, expect, test } from "vitest";
+import { env, fetchMock } from "cloudflare:test";
+import { beforeAll, afterEach, describe, expect, test } from "vitest";
 import worker from "./worker.tsx";
+
+beforeAll(() => {
+  fetchMock.activate();
+  fetchMock.disableNetConnect();
+});
+
+afterEach(() => fetchMock.assertNoPendingInterceptors());
 
 describe("isfree.se", () => {
   describe("GET /", () => {
@@ -45,9 +52,9 @@ describe("isfree.se", () => {
       expectRedirect(res, "/åäö.se");
     });
 
-    test("redirects /😁 to /😁.se", async () => {
-      const res = await worker.request("/😁.se", {}, env);
-      expectRedirect(res, "/😁.se");
+    test("redirects /🙊🙈🙉 to /🙊🙈🙉.se", async () => {
+      const res = await worker.request("/🙊🙈🙉", {}, env);
+      expectRedirect(res, "/%F0%9F%99%8A%F0%9F%99%88%F0%9F%99%89.se");
     });
 
     test("404 on /some/example", async () => {
@@ -57,9 +64,18 @@ describe("isfree.se", () => {
   });
 
   describe("GET /domain.se with .se suffix", () => {
-    const expectLookupPage = async (res: Response, domain: string) => {
+    const mockResponse = (idnEncodedDomain: string, status: Status) => {
+      const domainStatus = status.toLowerCase();
+      fetchMock
+        .get("http://free.iis.se")
+        .intercept({ path: "/free", query: { q: idnEncodedDomain } })
+        .reply(200, `${domainStatus} ${idnEncodedDomain}`);
+    };
+
+    const expectFreeDomainPage = async (res: Response, domain: string) => {
       expect(res.status).toBe(200);
       const body = await res.text();
+
       expect(body).toContain(
         `<h1 class="title"><span class="url-nolink">${domain}</span> är ledig!</h1>`,
       );
@@ -68,24 +84,52 @@ describe("isfree.se", () => {
       );
     };
 
+    const expectOccupiedDomainPage = async (res: Response, domain: string) => {
+      expect(res.status).toBe(200);
+      const body = await res.text();
+
+      expect(body).toContain(
+        `<h1 class="title"><span class="url-nolink">${domain}</span> är upptagen!</h1>`,
+      );
+      expect(body).toContain(
+        `<title>isfree.se | Är domänen ${domain} ledig?</title>`,
+      );
+    };
+
+    const expectNotValidDomainPage = async (res: Response, domain: string) => {
+      expect(res.status).toBe(200);
+      const body = await res.text();
+
+      expect(body).toContain(
+        `<h1 class="title"><span class="url-nolink">${domain}</span> är inte ett giltigt domännamn!</h1>`,
+      );
+      expect(body).toContain(
+        `<title>isfree.se | Är domänen ${domain} ledig?</title>`,
+      );
+    };
+
     test("returns a lookup page for example.se", async () => {
+      mockResponse("example.se", "FREE");
       const res = await worker.request("/example.se", {}, env);
-      await expectLookupPage(res, "example.se");
+      await expectFreeDomainPage(res, "example.se");
     });
 
     test("returns a lookup page for some.example.se", async () => {
+      mockResponse("some.example.se", "NOT_VALID");
       const res = await worker.request("/some.example.se", {}, env);
-      await expectLookupPage(res, "some.example.se");
+      await expectNotValidDomainPage(res, "some.example.se");
     });
 
     test("returns a lookup page for åäö.se", async () => {
+      mockResponse("xn--4cab6c.se", "OCCUPIED");
       const res = await worker.request("/åäö.se", {}, env);
-      await expectLookupPage(res, "åäö.se");
+      await expectOccupiedDomainPage(res, "åäö.se");
     });
 
     test("returns a lookup page for 😁.se", async () => {
+      mockResponse("xn--f28h.se", "NOT_VALID");
       const res = await worker.request("/😁.se", {}, env);
-      await expectLookupPage(res, "😁.se");
+      await expectNotValidDomainPage(res, "😁.se");
     });
 
     test("404 on /example.se/something", async () => {
@@ -94,6 +138,7 @@ describe("isfree.se", () => {
     });
 
     test("has a noindex follow robots directive", async () => {
+      mockResponse("example.se", "FREE");
       const res = await worker.request("/example.se", {}, env);
       const body = await res.text();
 

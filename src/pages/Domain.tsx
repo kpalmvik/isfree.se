@@ -5,8 +5,7 @@ import Result from "../components/Result";
 import ResultDescription from "../components/ResultDescription";
 import ResultWhois from "../components/ResultWhois";
 
-const Domain = ({ domain }: { domain: string }) => {
-  const status = "FREE";
+const Domain = ({ domain, status }: { domain: string; status: Status }) => {
   const updatedAt = DateTime.now()
     .setZone("Europe/Stockholm")
     .toFormat("yyyy-LL-dd T");
