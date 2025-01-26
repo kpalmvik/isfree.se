@@ -60,7 +60,9 @@ describe("isfree.se", () => {
     const expectLookupPage = async (res: Response, domain: string) => {
       expect(res.status).toBe(200);
       const body = await res.text();
-      expect(body).toContain(`<h1>Looking up ${domain}!</h1>`);
+      expect(body).toContain(
+        `<h1 class="title"><span class="url-nolink">${domain}</span> är ledig!</h1>`
+      );
       expect(body).toContain(
         `<title>isfree.se | Är domänen ${domain} ledig?</title>`
       );

@@ -6,7 +6,7 @@ describe("Domain", () => {
   test("renders a heading", () => {
     render(<Domain domain="example.se" />);
     expect(screen.getByRole("heading", { level: 1 }).textContent).toBe(
-      "Looking up example.se!"
+      "example.se är ledig!"
     );
   });
 });
