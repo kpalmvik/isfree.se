@@ -32,7 +32,9 @@ const Layout: FC = ({
       />
       <link rel="manifest" href="/site.webmanifest" />
     </head>
-    <body>{children}</body>
+    <body>
+      <div className="content">{children}</div>
+    </body>
   </html>
 );
 

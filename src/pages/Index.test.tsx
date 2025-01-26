@@ -6,7 +6,14 @@ describe("Index", () => {
   test("renders a heading", () => {
     render(<Index />);
     expect(screen.getByRole("heading", { level: 1 }).textContent).toBe(
-      "Welcome to isfree.se"
+      "isfree.se"
+    );
+  });
+
+  test("renders instructions", () => {
+    render(<Index />);
+    expect(screen.getByRole("heading", { level: 2 }).textContent).toBe(
+      "Besök isfree.se/example för att snabbt se om domänen example.se är upptagen eller ledig"
     );
   });
 });

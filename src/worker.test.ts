@@ -4,11 +4,23 @@ import worker from "./worker.tsx";
 
 describe("isfree.se", () => {
   describe("GET /", () => {
-    test("returns a greeting", async () => {
+    test("returns 200", async () => {
       const res = await worker.request("/", {}, env);
       expect(res.status).toBe(200);
+    });
+
+    test("has a title", async () => {
+      const res = await worker.request("/", {}, env);
       const body = await res.text();
-      expect(body).toContain("Welcome to isfree.se");
+      expect(body).toContain(
+        "<title>isfree.se | Kolla snabbt om en svensk .se-domän är ledig!</title>"
+      );
+    });
+
+    test("has a header", async () => {
+      const res = await worker.request("/", {}, env);
+      const body = await res.text();
+      expect(body).toContain('<h1 class="title">isfree.se</h1>');
     });
   });
 
