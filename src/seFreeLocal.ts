@@ -16,7 +16,7 @@ const seFreeLocal = async (domain: string): Promise<Status> => {
   const response = await fetch(requestUrl);
 
   if (!response.ok) {
-    return Promise.reject(new Error(response.statusText));
+    throw new Error(response.statusText);
   }
 
   const body = await response.text();
@@ -28,7 +28,7 @@ const seFreeLocal = async (domain: string): Promise<Status> => {
     return result;
   }
 
-  return Promise.reject(new Error("Unknown error"));
+  throw new Error("Unknown error");
 };
 
 export default seFreeLocal;

@@ -178,5 +178,27 @@ describe("isfree.se", () => {
         expect(body).not.toContain("noindex");
       });
     });
+
+    test("gives a 500 internal server error on a 404 from free.iis.se API", async () => {
+      fetchMock
+        .get("http://free.iis.se")
+        .intercept({ path: "/free", query: { q: "example.se" } })
+        .reply(404, "Not found");
+      const res = await worker.request("/example.se", {}, env);
+
+      expect(res.status).toBe(500);
+      expect(await res.text()).toContain("Internal Server Error");
+    });
+
+    test("gives a 500 internal server error on a broken response from free.iis.se API", async () => {
+      fetchMock
+        .get("http://free.iis.se")
+        .intercept({ path: "/free", query: { q: "example.se" } })
+        .reply(200, "<completely broken response>");
+      const res = await worker.request("/example.se", {}, env);
+
+      expect(res.status).toBe(500);
+      expect(await res.text()).toContain("Internal Server Error");
+    });
   });
 });
