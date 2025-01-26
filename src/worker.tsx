@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 
 declare module "hono" {
   interface ContextRenderer {
+    // eslint-disable-next-line @typescript-eslint/prefer-function-type
     (
       content: string | Promise<string>,
       props: { pageTitleSuffix?: string; noindex?: boolean }

@@ -14,8 +14,9 @@ jobs:
           cache: npm
       - name: Install dependencies 📦
         run: npm ci --no-fund
+      - name: Lint code 🧹
+        run: npm run lint
       - name: Check TypeScript types 🕵️️
         run: npm run typecheck
       - name: Run tests 🧪
         run: npm test
-

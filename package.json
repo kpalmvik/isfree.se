@@ -8,6 +8,7 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
     "deploy-staging": "wrangler deploy --env staging --minify",
+    "lint": "npx eslint",
     "test:react": "vitest -c vitest.react.config.ts --run",
     "test:worker": "vitest -c vitest.worker.config.ts --run",
     "test": "npm run test:react && npm run test:worker",
@@ -19,10 +20,13 @@
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.6.7",
     "@cloudflare/workers-types": "^4.20250109.0",
+    "@eslint/js": "^9.19.0",
     "@testing-library/react": "^16.2.0",
     "@vitejs/plugin-react-swc": "^3.7.2",
+    "eslint": "^9.19.0",
     "jsdom": "^26.0.0",
     "typescript": "^5.7.3",
+    "typescript-eslint": "^8.21.0",
     "vitest": "^2.1.8",
     "wrangler": "^3.101.0"
   }
