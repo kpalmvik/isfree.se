@@ -1,0 +1,89 @@
+:root,
+body {
+  min-height: 100vh;
+  color: #f2f2f2;
+}
+
+body {
+  background: #1763a6;
+  padding: 1rem 2rem;
+}
+
+.content {
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+a {
+  color: #f2cc00;
+  border-bottom: 2px solid #f2cc00;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 3.5rem;
+}
+
+.instructions,
+.result-page__description {
+  font-size: 1.3rem;
+  line-height: 1.9rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.example__title,
+.about__title,
+.usage__title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.example__list {
+  font-size: 1rem;
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: circle;
+  line-height: 2rem;
+}
+
+.example__list-item {
+  line-height: 1.8rem;
+  margin-bottom: 0.1rem;
+}
+
+.about__source-code {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+  border: none;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  color: #f2f2f2;
+}
+
+.url {
+  border-bottom: 2px solid #f2cc00;
+}
+
+.url,
+.url-nolink {
+  color: #f2cc00;
+
+  /* https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.updated-at {
+  padding-top: 1rem;
+  font-size: 0.8rem;
+}

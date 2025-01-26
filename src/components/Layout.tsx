@@ -11,6 +11,8 @@ const Layout: FC = ({
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>isfree.se | {pageTitleSuffix}</title>
       {noindex && <meta name="robots" content="noindex, follow" />}
+      <link rel="stylesheet" href="/styles/sanitize.css" />
+      <link rel="stylesheet" href="/styles/style.css" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
