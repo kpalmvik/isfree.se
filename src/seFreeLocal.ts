@@ -1,7 +1,6 @@
 import * as uts46 from "idna-uts46-hx";
 
 type FreeResponseValues = "free" | "not_valid" | "occupied";
-type Status = "FREE" | "NOT_VALID" | "OCCUPIED";
 
 const returnValues: Record<FreeResponseValues, Status> = {
   free: "FREE",
