@@ -1,6 +1,8 @@
 name = "isfree-se"
 main = "src/worker.tsx"
 compatibility_date = "2025-01-24"
+assets = { directory = "public" }
+
 
 [env.production]
 route = "isfree.se/*"
