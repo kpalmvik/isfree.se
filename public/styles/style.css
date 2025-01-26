@@ -32,6 +32,14 @@ a {
   margin: 0;
 }
 
+.result-page__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 1.5rem;
+}
+
 .example__title,
 .about__title,
 .usage__title {

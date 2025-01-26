@@ -10,14 +10,25 @@ describe("Domain", () => {
     );
   });
 
-  test("renders a link to check whois", () => {
-    render(<Domain domain="example.se" status="OCCUPIED" />);
-    const whoisLink = screen.getByRole("link", {
-      name: "Se vem som registrerat example.se",
+  describe("when the domain is already registered", () => {
+    test("renders a link to check whois", () => {
+      render(<Domain domain="example.se" status="OCCUPIED" />);
+      const whoisLink = screen.getByRole("link", {
+        name: "Se vem som registrerat example.se",
+      });
+      expect(whoisLink).toHaveAttribute(
+        "href",
+        "https://internetstiftelsen.se/sok-doman/?domain=example.se",
+      );
     });
-    expect(whoisLink).toHaveAttribute(
-      "href",
-      "https://internetstiftelsen.se/sok-doman/?domain=example.se",
-    );
+
+    test("renders a restricted link to the actual url", () => {
+      render(<Domain domain="example.se" status="OCCUPIED" />);
+      const whoisLink = screen.getByRole("link", {
+        name: "Gå till example.se",
+      });
+      expect(whoisLink).toHaveAttribute("href", "http://example.se/");
+      expect(whoisLink).toHaveAttribute("rel", "noopener noreferrer nofollow");
+    });
   });
 });
