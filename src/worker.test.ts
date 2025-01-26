@@ -47,12 +47,12 @@ describe("isfree.se", () => {
       expectRedirect(res, "/some.example.se");
     });
 
-    test("redirects /åäö to /åäö.se", async () => {
+    test("redirects /åäö to the URI encoded /%C3%A5%C3%A4%C3%B6.se", async () => {
       const res = await worker.request("/åäö", {}, env);
-      expectRedirect(res, "/åäö.se");
+      expectRedirect(res, "/%C3%A5%C3%A4%C3%B6.se");
     });
 
-    test("redirects /🙊🙈🙉 to /🙊🙈🙉.se", async () => {
+    test("redirects /🙊🙈🙉 to the URI encoded /%F0%9F%99%8A%F0%9F%99%88%F0%9F%99%89.se", async () => {
       const res = await worker.request("/🙊🙈🙉", {}, env);
       expectRedirect(res, "/%F0%9F%99%8A%F0%9F%99%88%F0%9F%99%89.se");
     });
