@@ -32,7 +32,7 @@ describe("isfree.se", () => {
   });
 
   describe("GET /domain without .se suffix", () => {
-    const expectRedirect = async (res: Response, location: string) => {
+    const expectRedirect = (res: Response, location: string) => {
       expect(res.status).toBe(302);
       expect(res.headers.get("Location")).toBe(location);
     };
