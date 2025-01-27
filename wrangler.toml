@@ -5,8 +5,10 @@ assets = { directory = "public" }
 
 
 [env.production]
-route = "isfree.se/*"
 workers_dev = false
+routes = [
+  { pattern = "isfree.se", custom_domain = true }
+]
 
 [env.staging]
 workers_dev = true
