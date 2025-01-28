@@ -28,7 +28,7 @@ const seFreeLocal = async (domain: string): Promise<Status> => {
     return result;
   }
 
-  throw new Error("Unknown error");
+  throw new Error(`Unknown error for request to ${requestUrl}`);
 };
 
 export default seFreeLocal;
