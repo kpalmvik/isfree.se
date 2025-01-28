@@ -201,4 +201,13 @@ describe("isfree.se", () => {
       expect(await res.text()).toContain("Internal Server Error");
     });
   });
+
+  describe("GET /search/domain", () => {
+    test("redirects ?domain=example to /example.se", async () => {
+      const url = "/search/domain?domain=example";
+      const res = await worker.request(url, {}, env);
+      expect(res.status).toBe(301);
+      expect(res.headers.get("Location")).toBe("/example.se");
+    });
+  });
 });

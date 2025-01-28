@@ -62,4 +62,10 @@ app.get("/:domain{[^/]+}", (c) =>
   c.redirect(`/${encodeURIComponent(c.req.param("domain"))}.se`, 301),
 );
 
+app.get("/search/domain", (c) => {
+  const domain = c.req.query("domain");
+
+  return c.redirect(domain ? `/${encodeURIComponent(domain)}.se` : "/", 301);
+});
+
 export default app;

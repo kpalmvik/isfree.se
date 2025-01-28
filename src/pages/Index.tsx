@@ -1,4 +1,5 @@
 import Instructions from "../components/Instructions";
+import SearchForm from "../components/SearchForm";
 
 const Index = () => (
   <>
@@ -8,6 +9,9 @@ const Index = () => (
         <Instructions />
       </h2>
     </header>
+    <section className="index-page__search">
+      <SearchForm />
+    </section>
     <section className="index-page__example">
       <h3 className="example__title">Andra exempel</h3>
       <ul className="example__list">
