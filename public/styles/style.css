@@ -75,6 +75,10 @@ a {
   border-bottom: 2px solid #f2cc00;
 }
 
+.url-nobreak {
+  color: #f2cc00;
+}
+
 .url,
 .url-nolink {
   color: #f2cc00;
