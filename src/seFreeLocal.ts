@@ -11,7 +11,7 @@ const returnValues: Record<FreeResponseValues, Status> = {
 const seFreeLocal = async (domain: string): Promise<Status> => {
   const idnEncodedDomain = uts46.toAscii(domain);
 
-  const requestUrl = `http://free.iis.se/free?q=${idnEncodedDomain}`;
+  const requestUrl = `http://free.iis.se/free?q=${encodeURIComponent(idnEncodedDomain)}`;
 
   const response = await fetch(requestUrl);
 
