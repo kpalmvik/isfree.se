@@ -22,7 +22,7 @@ const Domain = ({ domain, status }: { domain: string; status: Status }) => {
         </h2>
 
         {status === "OCCUPIED" && (
-          <ul class="result-page__links">
+          <ul className="result-page__links">
             <li>
               <ResultWhois domain={domain} />
             </li>
