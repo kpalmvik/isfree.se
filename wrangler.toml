@@ -2,10 +2,9 @@ name = "isfree-se"
 main = "src/worker.tsx"
 compatibility_date = "2025-01-24"
 assets = { directory = "public" }
-
+workers_dev = false
 
 [env.production]
-workers_dev = false
 routes = [
   { pattern = "isfree.se", custom_domain = true }
 ]
