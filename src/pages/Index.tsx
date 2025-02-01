@@ -1,7 +1,7 @@
 import Instructions from "../components/Instructions";
 import SearchForm from "../components/SearchForm";
 
-const Index = () => (
+const Index = ({ trunkver }: { trunkver?: string }) => (
   <>
     <header>
       <h1 className="title">isfree.se</h1>
@@ -48,6 +48,11 @@ const Index = () => (
       >
         Källkod
       </a>
+      {trunkver && (
+        <p class="about__version">
+          Version: <code>{trunkver}</code>
+        </p>
+      )}
     </footer>
   </>
 );

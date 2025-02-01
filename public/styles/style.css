@@ -138,12 +138,18 @@ a {
 
 .about__source-code {
   display: block;
-  margin-top: 1rem;
+  margin: 1rem 0;
   text-align: center;
   border: none;
   font-size: 0.9rem;
   text-decoration: underline;
   color: #f2f2f2;
+}
+
+.about__version {
+  text-align: center;
+  font-size: 0.7rem;
+  color: hsl(208, 40%, 70%);
 }
 
 .url {

@@ -5,7 +5,7 @@ import Domain from "./pages/Domain";
 import Index from "./pages/Index";
 import Layout from "./components/Layout";
 import seFreeLocal from "./seFreeLocal";
-
+import trunkver from "./trunkver.json";
 declare module "hono" {
   interface ContextRenderer {
     // eslint-disable-next-line @typescript-eslint/prefer-function-type
@@ -40,7 +40,7 @@ app.get(
   ),
 );
 
-app.get("/", (c) => c.render(<Index />, {}));
+app.get("/", (c) => c.render(<Index trunkver={trunkver.version} />, {}));
 
 app.get("/:domain{([^/]+.se)$}", async (c) => {
   const domain = c.req.param("domain");

@@ -11,13 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Generate trunkver
-        id: trunkver
-        uses: crftd-tech/trunkver@main
-      - name: Print trunkver
-        env:
-          TRUNKVER: ${{ steps.trunkver.outputs.trunkver }}
-        run: echo "$TRUNKVER"
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
@@ -39,6 +32,14 @@ jobs:
     name: Deploy isfree.se
     steps:
       - uses: actions/checkout@v4
+      - name: Generate trunkver
+        id: trunkver
+        uses: crftd-tech/trunkver@main
+      - name: Write trunkver to file
+        env:
+          TRUNKVER: ${{ steps.trunkver.outputs.trunkver }}
+        run: |
+          echo '{ "version": "'$TRUNKVER'" }' > src/trunkver.json
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
