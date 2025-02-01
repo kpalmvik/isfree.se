@@ -49,7 +49,7 @@ const Index = ({ trunkver }: { trunkver?: string }) => (
         Källkod
       </a>
       {trunkver && (
-        <p class="about__version">
+        <p className="about__version" data-nosnippet>
           Version: <code>{trunkver}</code>
         </p>
       )}
