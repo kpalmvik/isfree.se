@@ -7,7 +7,9 @@ beforeAll(() => {
   fetchMock.disableNetConnect();
 });
 
-afterEach(() => fetchMock.assertNoPendingInterceptors());
+afterEach(() => {
+  fetchMock.assertNoPendingInterceptors();
+});
 
 describe("isfree.se", () => {
   describe("GET /", () => {
@@ -179,26 +181,32 @@ describe("isfree.se", () => {
       });
     });
 
-    test("gives a 500 internal server error on a 404 from free.iis.se API", async () => {
+    test("gives an error page on a 404 from free.iis.se API", async () => {
       fetchMock
         .get("http://free.iis.se")
         .intercept({ path: "/free", query: { q: "example.se" } })
         .reply(404, "Not found");
       const res = await worker.request("/example.se", {}, env);
 
-      expect(res.status).toBe(500);
-      expect(await res.text()).toContain("Internal Server Error");
+      expect(res.status).toBe(200);
+      const body = await res.text();
+      expect(body).toContain(
+        `<h1 class="title"><span class="url-nolink">example.se</span> är inte ett giltigt domännamn!</h1>`,
+      );
     });
 
-    test("gives a 500 internal server error on a broken response from free.iis.se API", async () => {
+    test("gives an error page on a broken response from free.iis.se API", async () => {
       fetchMock
         .get("http://free.iis.se")
         .intercept({ path: "/free", query: { q: "example.se" } })
         .reply(200, "<completely broken response>");
       const res = await worker.request("/example.se", {}, env);
 
-      expect(res.status).toBe(500);
-      expect(await res.text()).toContain("Internal Server Error");
+      expect(res.status).toBe(200);
+      const body = await res.text();
+      expect(body).toContain(
+        `<h1 class="title"><span class="url-nolink">example.se</span> är inte ett giltigt domännamn!</h1>`,
+      );
     });
   });
 

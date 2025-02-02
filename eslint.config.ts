@@ -15,8 +15,26 @@ export default tseslint.config(
     },
   },
   eslint.configs.recommended,
-  tseslint.configs.strict,
+  tseslint.configs.strictTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
+  {
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        project: "tsconfig.json",
+      },
+    },
+  },
   tseslint.configs.stylistic,
   react.configs.flat["jsx-runtime"],
   jsxA11y.flatConfigs.recommended,
+  {
+    // disable `any` checks in tests
+    files: ["src/**/*.test.ts?(x)"],
+    rules: {
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      "@typescript-eslint/no-unsafe-argument": "off",
+    },
+  },
 );

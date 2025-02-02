@@ -21,7 +21,7 @@ describe("Index", () => {
     render(<Index />);
 
     const textbox = screen.getByRole("textbox");
-    expect(textbox.getAttribute("placeholder")).toBe("example");
+    expect(textbox.placeholder).toBe("example");
     const button = screen.getByRole("button");
     expect(button.textContent).toBe("Sök");
   });

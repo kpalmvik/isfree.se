@@ -21,14 +21,16 @@ const seFreeLocal = async (domain: string): Promise<Status> => {
 
   const body = await response.text();
 
-  const domainAvailability = body.split(" ")[0] as FreeResponseValues;
-  const result = returnValues[domainAvailability];
+  const domainAvailability = body.split(" ")[0];
+  const result = returnValues[domainAvailability as FreeResponseValues];
 
-  if (result) {
-    return result;
+  if (!(domainAvailability in returnValues)) {
+    throw new Error(
+      `Invalid response "${domainAvailability}" from ${requestUrl}`,
+    );
   }
 
-  throw new Error(`Unknown error for request to ${requestUrl}`);
+  return result;
 };
 
 export default seFreeLocal;

@@ -18,7 +18,7 @@ declare module "hono" {
 
 const checkDomainStatus = async (domain: string) => {
   try {
-    return seFreeLocal(domain);
+    return await seFreeLocal(domain);
   } catch {
     return "NOT_VALID";
   }
