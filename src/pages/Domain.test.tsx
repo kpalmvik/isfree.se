@@ -31,4 +31,20 @@ describe("Domain", () => {
       expect(whoisLink).toHaveAttribute("rel", "noopener noreferrer nofollow");
     });
   });
+
+  describe("when the domain is not valid", () => {
+    test("renders an error title", () => {
+      render(<Domain domain="#invalid#" status="NOT_VALID" />);
+      expect(screen.getByRole("heading", { level: 1 }).textContent).toBe(
+        "#invalid# är inte ett giltigt domännamn!",
+      );
+    });
+
+    test("clarifies that it cannot be registered", () => {
+      render(<Domain domain="example.se" status="NOT_VALID" />);
+      expect(screen.getByRole("heading", { level: 2 }).textContent).toBe(
+        "Den här domänen går av någon anledning inte att registrera",
+      );
+    });
+  });
 });
