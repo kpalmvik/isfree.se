@@ -123,12 +123,22 @@ a {
   margin-top: 1.5rem;
 }
 
+.example__text {
+  margin-bottom: 1rem;
+}
+
 .example__list {
   font-size: 1rem;
   margin: 0;
   padding-left: 1.5rem;
   list-style: circle;
   line-height: 2rem;
+}
+
+@media (min-width: 500px) {
+  .example__list--columns {
+    columns: 2;
+  }
 }
 
 .example__list-item {

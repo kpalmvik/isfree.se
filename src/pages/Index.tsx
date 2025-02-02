@@ -1,3 +1,4 @@
+import Nyord from "../components/Nyord";
 import SearchForm from "../components/SearchForm";
 
 const Index = ({ trunkver }: { trunkver?: string }) => (
@@ -35,6 +36,9 @@ const Index = ({ trunkver }: { trunkver?: string }) => (
           är en ogiltig domän
         </li>
       </ul>
+    </section>
+    <section className="index-page__nyord">
+      <Nyord />
     </section>
     <footer className="index-page__about">
       <h2 className="about__title">Om isfree.se</h2>
