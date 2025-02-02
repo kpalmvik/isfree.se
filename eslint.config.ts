@@ -3,6 +3,7 @@ import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 import react from "eslint-plugin-react";
 import jsxA11y from "eslint-plugin-jsx-a11y";
+import testingLibrary from "eslint-plugin-testing-library";
 
 export default tseslint.config(
   { ignores: ["node_modules", ".wrangler"] },
@@ -35,6 +36,19 @@ export default tseslint.config(
       "@typescript-eslint/no-unsafe-assignment": "off",
       "@typescript-eslint/no-unsafe-member-access": "off",
       "@typescript-eslint/no-unsafe-argument": "off",
+    },
+  },
+  testingLibrary.configs["flat/react"],
+  {
+    rules: {
+      "testing-library/consistent-data-testid": [
+        "error",
+        {
+          testIdPattern: "^[a-z0-9]+(-[a-z0-9]+)*$",
+          customMessage:
+            "Test ID must be a kebab-case alphanumeric string starting with the filename",
+        },
+      ],
     },
   },
 );
