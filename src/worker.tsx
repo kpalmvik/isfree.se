@@ -25,16 +25,9 @@ const app = new Hono();
 
 app.get(
   "/*",
-  jsxRenderer(
-    ({ pageTitlePrefix, noindex, children }: LayoutProps) => (
-      <Layout pageTitlePrefix={pageTitlePrefix} noindex={noindex}>
-        {children}
-      </Layout>
-    ),
-    {
-      docType: "<!DOCTYPE html>",
-    },
-  ),
+  jsxRenderer((props) => <Layout {...props} />, {
+    docType: "<!DOCTYPE html>",
+  }),
 );
 
 app.get("/", (c) => c.render(<Index trunkver={trunkver.version} />, {}));
