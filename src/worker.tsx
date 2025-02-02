@@ -25,9 +25,7 @@ const app = new Hono();
 
 app.get(
   "/*",
-  jsxRenderer((props) => <Layout {...props} />, {
-    docType: "<!DOCTYPE html>",
-  }),
+  jsxRenderer((props) => <Layout {...props} />),
 );
 
 app.get("/", (c) => c.render(<Index trunkver={trunkver.version} />, {}));
