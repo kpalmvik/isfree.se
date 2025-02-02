@@ -13,7 +13,7 @@ describe("Domain", () => {
 
     test("clarifies that it can be registered", () => {
       render(<Domain domain="example.se" status="FREE" />);
-      expect(screen.getByRole("heading", { level: 2 }).textContent).toBe(
+      expect(screen.getByRole("paragraph").textContent).toBe(
         "Den här domänen går att registrera",
       );
     });
@@ -29,7 +29,7 @@ describe("Domain", () => {
 
     test("clarifies that it has already been registered", () => {
       render(<Domain domain="example.se" status="OCCUPIED" />);
-      expect(screen.getByRole("heading", { level: 2 }).textContent).toBe(
+      expect(screen.getByRole("paragraph").textContent).toBe(
         "Den här domänen har redan registrerats",
       );
     });
@@ -65,7 +65,7 @@ describe("Domain", () => {
 
     test("clarifies that it cannot be registered", () => {
       render(<Domain domain="example.se" status="NOT_VALID" />);
-      expect(screen.getByRole("heading", { level: 2 }).textContent).toBe(
+      expect(screen.getByRole("paragraph").textContent).toBe(
         "Den här domänen går av någon anledning inte att registrera",
       );
     });

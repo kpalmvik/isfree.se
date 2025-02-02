@@ -17,9 +17,9 @@ const Domain = ({ domain, status }: { domain: string; status: Status }) => {
         <h1 className="title">
           <Result domain={domain} status={status} />
         </h1>
-        <h2 className="result-page__description">
+        <p className="result-page__description">
           <ResultDescription status={status} />
-        </h2>
+        </p>
 
         {status === "OCCUPIED" && (
           <ul className="result-page__links">
