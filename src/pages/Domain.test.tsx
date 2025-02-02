@@ -3,22 +3,45 @@ import { render, screen } from "@testing-library/react";
 import Domain from "./Domain.tsx";
 
 describe("Domain", () => {
-  test("renders a heading", () => {
-    render(<Domain domain="example.se" status="FREE" />);
-    expect(screen.getByRole("heading", { level: 1 }).textContent).toBe(
-      "example.se är ledig!",
-    );
+  describe("when the domain is not registered", () => {
+    test("renders a heading that says that it is free", () => {
+      render(<Domain domain="available.se" status="FREE" />);
+      expect(screen.getByRole("heading", { level: 1 }).textContent).toBe(
+        "available.se är ledig!",
+      );
+    });
+
+    test("clarifies that it can be registered", () => {
+      render(<Domain domain="example.se" status="FREE" />);
+      expect(screen.getByRole("heading", { level: 2 }).textContent).toBe(
+        "Den här domänen går att registrera",
+      );
+    });
   });
 
   describe("when the domain is already registered", () => {
-    test("renders a link to check whois", () => {
+    test("renders a heading that says that it is occupied", () => {
+      render(<Domain domain="already-registered.se" status="OCCUPIED" />);
+      expect(screen.getByRole("heading", { level: 1 }).textContent).toBe(
+        "already-registered.se är upptagen!",
+      );
+    });
+
+    test("clarifies that it has already been registered", () => {
       render(<Domain domain="example.se" status="OCCUPIED" />);
+      expect(screen.getByRole("heading", { level: 2 }).textContent).toBe(
+        "Den här domänen har redan registrerats",
+      );
+    });
+
+    test("renders a link to check whois", () => {
+      render(<Domain domain="already-registered.se" status="OCCUPIED" />);
       const whoisLink = screen.getByRole("link", {
-        name: "Se vem som registrerat example.se",
+        name: "Se vem som registrerat already-registered.se",
       });
       expect(whoisLink).toHaveAttribute(
         "href",
-        "https://internetstiftelsen.se/sok-doman/?domain=example.se",
+        "https://internetstiftelsen.se/sok-doman/?domain=already-registered.se",
       );
     });
 
@@ -32,8 +55,8 @@ describe("Domain", () => {
     });
   });
 
-  describe("when the domain is not valid", () => {
-    test("renders an error title", () => {
+  describe("when the domain is invalid", () => {
+    test("renders a heading that says that it is not valid", () => {
       render(<Domain domain="#invalid#" status="NOT_VALID" />);
       expect(screen.getByRole("heading", { level: 1 }).textContent).toBe(
         "#invalid# är inte ett giltigt domännamn!",
