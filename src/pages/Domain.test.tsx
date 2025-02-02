@@ -13,9 +13,9 @@ describe("Domain", () => {
 
     test("clarifies that it can be registered", () => {
       render(<Domain domain="example.se" status="FREE" />);
-      expect(screen.getByRole("paragraph").textContent).toBe(
-        "Den här domänen går att registrera",
-      );
+      expect(
+        screen.getByText("Den här domänen går att registrera"),
+      ).toBeInTheDocument();
     });
   });
 
@@ -29,9 +29,9 @@ describe("Domain", () => {
 
     test("clarifies that it has already been registered", () => {
       render(<Domain domain="example.se" status="OCCUPIED" />);
-      expect(screen.getByRole("paragraph").textContent).toBe(
-        "Den här domänen har redan registrerats",
-      );
+      expect(
+        screen.getByText("Den här domänen har redan registrerats"),
+      ).toBeInTheDocument();
     });
 
     test("renders a link to check whois", () => {
@@ -65,9 +65,11 @@ describe("Domain", () => {
 
     test("clarifies that it cannot be registered", () => {
       render(<Domain domain="example.se" status="NOT_VALID" />);
-      expect(screen.getByRole("paragraph").textContent).toBe(
-        "Den här domänen går av någon anledning inte att registrera",
-      );
+      expect(
+        screen.getByText(
+          "Den här domänen går av någon anledning inte att registrera",
+        ),
+      ).toBeInTheDocument();
     });
   });
 });

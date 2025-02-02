@@ -22,8 +22,7 @@ const Domain = ({ domain, status }: Props) => {
       <main>
         <DomainResult domain={domain} status={status} />
       </main>
-      <footer className="result-page__usage">
-        <h2 className="usage__title">Hur använder jag isfree.se?</h2>
+      <footer>
         <Instructions />
         <div className="updated-at">Informationen uppdaterades {updatedAt}</div>
       </footer>
