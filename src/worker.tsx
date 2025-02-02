@@ -3,16 +3,13 @@ import { jsxRenderer } from "hono/jsx-renderer";
 
 import Domain from "./pages/Domain";
 import Index from "./pages/Index";
-import Layout from "./components/Layout";
+import Layout, { Props as LayoutProps } from "./components/Layout";
 import seFreeLocal from "./seFreeLocal";
 import trunkver from "./trunkver.json";
 declare module "hono" {
   interface ContextRenderer {
     // eslint-disable-next-line @typescript-eslint/prefer-function-type
-    (
-      content: string | Promise<string>,
-      props: { pageTitleSuffix?: string; noindex?: boolean },
-    ): Response;
+    (content: string | Promise<string>, props: LayoutProps): Response;
   }
 }
 
@@ -29,8 +26,8 @@ const app = new Hono();
 app.get(
   "/*",
   jsxRenderer(
-    ({ pageTitleSuffix, noindex, children }) => (
-      <Layout pageTitleSuffix={pageTitleSuffix} noindex={noindex}>
+    ({ pageTitlePrefix, noindex, children }: LayoutProps) => (
+      <Layout pageTitlePrefix={pageTitlePrefix} noindex={noindex}>
         {children}
       </Layout>
     ),
@@ -53,7 +50,7 @@ app.get("/:domain{([^/]+.se)$}", async (c) => {
   ];
 
   return c.render(<Domain domain={domain} status={status} />, {
-    pageTitleSuffix: `Är domänen ${domain} ledig?`,
+    pageTitlePrefix: `Är ${domain} ledig?`,
     noindex: !allowIndexingDomains.includes(domain),
   });
 });

@@ -22,7 +22,7 @@ describe("isfree.se", () => {
       const res = await worker.request("/", {}, env);
       const body = await res.text();
       expect(body).toContain(
-        "<title>isfree.se | Kolla snabbt om en svensk .se-domän är ledig!</title>",
+        "<title>Kolla snabbt om en svensk .se-domän är ledig! | isfree.se</title>",
       );
     });
 
@@ -74,6 +74,10 @@ describe("isfree.se", () => {
         .reply(200, `${domainStatus} ${idnEncodedDomain}`);
     };
 
+    const expectDomainTitle = (body: string, domain: string) => {
+      expect(body).toContain(`<title>Är ${domain} ledig? | isfree.se</title>`);
+    };
+
     const expectFreeDomainPage = async (res: Response, domain: string) => {
       expect(res.status).toBe(200);
       const body = await res.text();
@@ -81,9 +85,7 @@ describe("isfree.se", () => {
       expect(body).toContain(
         `<h1 class="title"><span class="url-nolink">${domain}</span> är ledig!</h1>`,
       );
-      expect(body).toContain(
-        `<title>isfree.se | Är domänen ${domain} ledig?</title>`,
-      );
+      expectDomainTitle(body, domain);
     };
 
     const expectOccupiedDomainPage = async (res: Response, domain: string) => {
@@ -93,9 +95,7 @@ describe("isfree.se", () => {
       expect(body).toContain(
         `<h1 class="title"><span class="url-nolink">${domain}</span> är upptagen!</h1>`,
       );
-      expect(body).toContain(
-        `<title>isfree.se | Är domänen ${domain} ledig?</title>`,
-      );
+      expectDomainTitle(body, domain);
     };
 
     const expectNotValidDomainPage = async (res: Response, domain: string) => {
@@ -105,9 +105,7 @@ describe("isfree.se", () => {
       expect(body).toContain(
         `<h1 class="title"><span class="url-nolink">${domain}</span> är inte ett giltigt domännamn!</h1>`,
       );
-      expect(body).toContain(
-        `<title>isfree.se | Är domänen ${domain} ledig?</title>`,
-      );
+      expectDomainTitle(body, domain);
     };
 
     test("returns a lookup page for example.se", async () => {

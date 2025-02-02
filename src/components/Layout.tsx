@@ -1,15 +1,22 @@
 import type { FC } from "hono/jsx";
+import { ReactElement } from "hono/jsx";
+
+export interface Props {
+  pageTitlePrefix?: string;
+  noindex?: boolean;
+  children?: ReactElement;
+}
 
 const Layout: FC = ({
-  pageTitleSuffix = "Kolla snabbt om en svensk .se-domän är ledig!",
+  pageTitlePrefix = "Kolla snabbt om en svensk .se-domän är ledig!",
   noindex = false,
   children,
-}) => (
+}: Props) => (
   <html lang="sv-SE">
     <head>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>isfree.se | {pageTitleSuffix}</title>
+      <title>{pageTitlePrefix} | isfree.se</title>
       {noindex && <meta name="robots" content="noindex, follow" />}
       <link rel="stylesheet" href="/styles/sanitize.css" />
       <link rel="stylesheet" href="/styles/style.css" />
