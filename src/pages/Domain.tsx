@@ -33,7 +33,7 @@ const Domain = ({ domain, status }: { domain: string; status: Status }) => {
         )}
       </header>
       <footer className="result-page__usage">
-        <h3 className="usage__title">Hur använder jag isfree.se?</h3>
+        <h2 className="usage__title">Hur använder jag isfree.se?</h2>
         <Instructions />
         <div className="updated-at">Informationen uppdaterades {updatedAt}</div>
       </footer>
