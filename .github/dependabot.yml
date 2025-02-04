@@ -12,6 +12,25 @@ updates:
     open-pull-requests-limit: 20
     reviewers:
       - "kpalmvik"
+    groups:
+      vitest:
+        patterns:
+          - "@cloudflare/vitest-pool-workers"
+          - "vitest"
+      typescript:
+        patterns:
+          - "typescript"
+          - "@types/*"
+      wrangler:
+        patterns:
+          - "wrangler"
+          - "@cloudflare/workers-types"
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@eslint/*"
+          - "typescript-eslint"
 
   - package-ecosystem: "github-actions"
     directory: "/"
