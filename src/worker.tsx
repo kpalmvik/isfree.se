@@ -6,6 +6,7 @@ import Index from "./pages/Index";
 import Layout, { Props as LayoutProps } from "./components/Layout";
 import seFreeLocal from "./seFreeLocal";
 import trunkver from "./trunkver.json";
+import { nyord2024 } from "./components/nyord-2024";
 declare module "hono" {
   interface ContextRenderer {
     // eslint-disable-next-line @typescript-eslint/prefer-function-type
@@ -38,6 +39,7 @@ app.get("/:domain{([^/]+.se)$}", async (c) => {
     "isfree.se",
     "ledig-doman.se",
     "🦄.se",
+    ...nyord2024.map((word) => `${word}.se`),
   ];
 
   return c.render(<Domain domain={domain} status={status} />, {

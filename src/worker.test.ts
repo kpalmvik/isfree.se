@@ -177,6 +177,14 @@ describe("isfree.se", () => {
 
         expect(body).not.toContain("noindex");
       });
+
+      test("umarell.se from nyord2024 can be indexed", async () => {
+        mockResponse("umarell.se", "FREE");
+        const res = await worker.request("/umarell.se", {}, env);
+        const body = await res.text();
+
+        expect(body).not.toContain("noindex");
+      });
     });
 
     test("gives an error page on a 404 from free.iis.se API", async () => {
