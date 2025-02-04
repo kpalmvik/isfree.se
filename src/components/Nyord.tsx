@@ -3,7 +3,7 @@ import { nyord2024 } from "./nyord-2024";
 const Nyord = () => (
   <>
     <h2 className="example__title">Nyord 2024</h2>
-    <p class="example__text">
+    <p className="example__text">
       Kolla om något av orden från{" "}
       <a href="https://www.isof.se/svenska-spraket/nyord/nyordslistan-2024">
         nyordslistan&nbsp;2024
