@@ -7,6 +7,10 @@ export interface Props {
   children?: ReactElement;
 }
 
+const metaRobotsContent = (noindex: boolean) => {
+  return noindex ? "noindex, follow" : "index, follow";
+};
+
 const Layout: FC = ({
   pageTitlePrefix = "Kolla snabbt om en svensk .se-domän är ledig!",
   noindex = false,
@@ -17,7 +21,7 @@ const Layout: FC = ({
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>{pageTitlePrefix} | isfree.se</title>
-      {noindex && <meta name="robots" content="noindex, follow" />}
+      <meta name="robots" content={metaRobotsContent(noindex)} />
       <link rel="stylesheet" href="/styles/sanitize.css" />
       <link rel="stylesheet" href="/styles/style.css" />
       <link

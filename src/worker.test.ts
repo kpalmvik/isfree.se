@@ -137,21 +137,23 @@ describe("isfree.se", () => {
       expect(res.status).toBe(404);
     });
 
-    test("has a noindex follow robots directive", async () => {
-      mockResponse("some-random-domain.se", "FREE");
-      const res = await worker.request("/some-random-domain.se", {}, env);
-      const body = await res.text();
+    describe("indexing in search engines", () => {
+      test("random domain cannot be indexed", async () => {
+        mockResponse("some-random-domain.se", "FREE");
+        const res = await worker.request("/some-random-domain.se", {}, env);
+        const body = await res.text();
 
-      expect(body).toContain('<meta name="robots" content="noindex, follow"/>');
-    });
+        expect(body).toContain(
+          '<meta name="robots" content="noindex, follow"/>',
+        );
+      });
 
-    describe("with a domain among the linked examples", () => {
       test("example.se can be indexed", async () => {
         mockResponse("example.se", "OCCUPIED");
         const res = await worker.request("/example.se", {}, env);
         const body = await res.text();
 
-        expect(body).not.toContain("noindex");
+        expect(body).toContain('<meta name="robots" content="index, follow"/>');
       });
 
       test("isfree.se can be indexed", async () => {
@@ -159,7 +161,7 @@ describe("isfree.se", () => {
         const res = await worker.request("/isfree.se", {}, env);
         const body = await res.text();
 
-        expect(body).not.toContain("noindex");
+        expect(body).toContain('<meta name="robots" content="index, follow"/>');
       });
 
       test("ledig-doman.se can be indexed", async () => {
@@ -167,7 +169,7 @@ describe("isfree.se", () => {
         const res = await worker.request("/ledig-doman.se", {}, env);
         const body = await res.text();
 
-        expect(body).not.toContain("noindex");
+        expect(body).toContain('<meta name="robots" content="index, follow"/>');
       });
 
       test("🦄.se can be indexed", async () => {
@@ -175,7 +177,7 @@ describe("isfree.se", () => {
         const res = await worker.request("/🦄.se", {}, env);
         const body = await res.text();
 
-        expect(body).not.toContain("noindex");
+        expect(body).toContain('<meta name="robots" content="index, follow"/>');
       });
 
       test("umarell.se from nyord2024 can be indexed", async () => {
@@ -183,7 +185,7 @@ describe("isfree.se", () => {
         const res = await worker.request("/umarell.se", {}, env);
         const body = await res.text();
 
-        expect(body).not.toContain("noindex");
+        expect(body).toContain('<meta name="robots" content="index, follow"/>');
       });
     });
 
