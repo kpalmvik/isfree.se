@@ -17,6 +17,9 @@ updates:
         patterns:
           - "@cloudflare/vitest-pool-workers"
           - "vitest"
+        update-types:
+          - "minor"
+          - "patch"
       typescript:
         patterns:
           - "typescript"
