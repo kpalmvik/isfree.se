@@ -44,6 +44,11 @@ describe("isfree.se", () => {
       expectRedirect(res, "/example.se");
     });
 
+    test("redirects endingwithse to /endingwithse.se", async () => {
+      const res = await worker.request("/endingwithse", {}, env);
+      expectRedirect(res, "/endingwithse.se");
+    });
+
     test("redirects /some.example to /some.example.se", async () => {
       const res = await worker.request("/some.example", {}, env);
       expectRedirect(res, "/some.example.se");

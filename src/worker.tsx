@@ -31,7 +31,7 @@ app.get(
 
 app.get("/", (c) => c.render(<Index trunkver={trunkver.version} />, {}));
 
-app.get("/:domain{([^/]+.se)$}", async (c) => {
+app.get("/:domain{([^/]+[.]se)$}", async (c) => {
   const domain = c.req.param("domain");
   const status = await checkDomainStatus(domain);
   const allowIndexingDomains = [
