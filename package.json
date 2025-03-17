@@ -21,7 +21,7 @@
     "luxon": "^3.5.0"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.7.7",
+    "@cloudflare/vitest-pool-workers": "^0.8.0",
     "@cloudflare/workers-types": "^4.20250313.0",
     "@eslint/js": "^9.22.0",
     "@testing-library/jest-dom": "^6.6.3",
