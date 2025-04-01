@@ -58,7 +58,7 @@ const Index = ({ trunkver }: { trunkver?: string }) => (
           <a href="https://trunkver.org/" target="_blank" rel="noopener">
             Trunkver
           </a>{" "}
-          version: <code>{trunkver}</code> ( )
+          version: <code>{trunkver}</code>
         </p>
       )}
     </footer>
