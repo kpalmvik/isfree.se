@@ -1,4 +1,4 @@
-import { nyord2024 } from "./nyord-2024";
+import { nyord2024 } from "./nyord-data";
 
 const Nyord = () => (
   <>
