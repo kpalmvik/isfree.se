@@ -38,10 +38,10 @@ const app = new Hono();
 
 app.get(
   "/*",
-  jsxRenderer((props) => <Layout {...props} />),
+  jsxRenderer((props) => <Layout trunkver={trunkver.version} {...props} />),
 );
 
-app.get("/", (c) => c.render(<Index trunkver={trunkver.version} />, {}));
+app.get("/", (c) => c.render(<Index />, {}));
 
 app.get("/sitemap.xml", (c) => {
   const baseUrl = "https://isfree.se";

@@ -4,6 +4,7 @@ import { ReactElement } from "hono/jsx";
 export interface Props {
   pageTitlePrefix?: string;
   noindex?: boolean;
+  trunkver?: string;
   children?: ReactElement;
 }
 
@@ -14,6 +15,7 @@ const metaRobotsContent = (noindex: boolean) => {
 const Layout: FC = ({
   pageTitlePrefix = "Kolla snabbt om en svensk .se-domän är ledig!",
   noindex = false,
+  trunkver,
   children,
 }: Props) => (
   <html lang="sv-SE">
@@ -45,6 +47,28 @@ const Layout: FC = ({
     </head>
     <body>
       <div className="content">{children}</div>
+      <footer className="index-page__about">
+        <h2 className="about__title">Om isfree.se</h2>
+        <p className="about__text">
+          Tjänsten utvecklas, uppdateras och sköts av{" "}
+          <a href="https://kristofer.palmvik.se">Kristofer Palmvik</a> bara för
+          att det är roligt.
+        </p>
+        <a
+          href="https://github.com/kpalmvik/isfree.se"
+          className="about__source-code"
+        >
+          Källkod
+        </a>
+        {trunkver && (
+          <p className="about__version" data-nosnippet>
+            <a href="https://trunkver.org/" target="_blank" rel="noopener">
+              Trunkver
+            </a>{" "}
+            version: <code>{trunkver}</code>
+          </p>
+        )}
+      </footer>
     </body>
   </html>
 );

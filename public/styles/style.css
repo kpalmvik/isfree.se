@@ -146,6 +146,11 @@ a {
   margin-bottom: 0.1rem;
 }
 
+footer {
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
 .about__source-code {
   display: block;
   margin: 1rem 0;

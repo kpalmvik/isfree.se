@@ -1,7 +1,7 @@
 import Nyord from "../components/Nyord";
 import SearchForm from "../components/SearchForm";
 
-const Index = ({ trunkver }: { trunkver?: string }) => (
+const Index = () => (
   <>
     <header data-testid="header">
       <h1 className="title">isfree.se</h1>
@@ -40,28 +40,6 @@ const Index = ({ trunkver }: { trunkver?: string }) => (
     <section className="index-page__nyord">
       <Nyord />
     </section>
-    <footer className="index-page__about">
-      <h2 className="about__title">Om isfree.se</h2>
-      <p className="about__text">
-        Tjänsten utvecklas, uppdateras och sköts av{" "}
-        <a href="https://kristofer.palmvik.se">Kristofer Palmvik</a> bara för
-        att det är roligt.
-      </p>
-      <a
-        href="https://github.com/kpalmvik/isfree.se"
-        className="about__source-code"
-      >
-        Källkod
-      </a>
-      {trunkver && (
-        <p className="about__version" data-nosnippet>
-          <a href="https://trunkver.org/" target="_blank" rel="noopener">
-            Trunkver
-          </a>{" "}
-          version: <code>{trunkver}</code>
-        </p>
-      )}
-    </footer>
   </>
 );
 
