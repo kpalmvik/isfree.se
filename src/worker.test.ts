@@ -231,4 +231,22 @@ describe("isfree.se", () => {
       expect(res.headers.get("Location")).toBe("/example.se");
     });
   });
+
+  describe("GET /sitemap.xml", () => {
+    test("returns 200", async () => {
+      const res = await worker.request("/sitemap.xml", {}, env);
+      expect(res.status).toBe(200);
+    });
+
+    test("returns XML content type", async () => {
+      const res = await worker.request("/sitemap.xml", {}, env);
+      expect(res.headers.get("Content-Type")).toBe("application/xml");
+    });
+
+    test("contains example.se in the sitemap", async () => {
+      const res = await worker.request("/sitemap.xml", {}, env);
+      const body = await res.text();
+      expect(body).toContain("<loc>https://isfree.se/example.se</loc>");
+    });
+  });
 });

@@ -24,6 +24,16 @@ const checkDomainStatus = async (domain: string) => {
 
 const domainsFromWords = (words: string[]) => words.map((word) => `${word}.se`);
 
+const indexableDomain = [
+  "example.se",
+  "isfree.se",
+  "ledig-doman.se",
+  "🦄.se",
+  ...domainsFromWords(nyord2022.words),
+  ...domainsFromWords(nyord2023.words),
+  ...domainsFromWords(nyord2024.words),
+];
+
 const app = new Hono();
 
 app.get(
@@ -33,23 +43,28 @@ app.get(
 
 app.get("/", (c) => c.render(<Index trunkver={trunkver.version} />, {}));
 
+app.get("/sitemap.xml", (c) => {
+  const baseUrl = "https://isfree.se";
+
+  const urls = [
+    `${baseUrl}/`,
+    ...indexableDomain.map(
+      (domain) => `${baseUrl}/${encodeURIComponent(domain)}`,
+    ),
+  ];
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => `<url><loc>${url}</loc></url>`).join("")}</urlset>`;
+
+  return c.body(sitemap, { headers: { "Content-Type": "application/xml" } });
+});
+
 app.get("/:domain{([^/]+[.]se)$}", async (c) => {
   const domain = c.req.param("domain");
   const status = await checkDomainStatus(domain);
 
-  const allowIndexingDomains = [
-    "example.se",
-    "isfree.se",
-    "ledig-doman.se",
-    "🦄.se",
-    ...domainsFromWords(nyord2022.words),
-    ...domainsFromWords(nyord2023.words),
-    ...domainsFromWords(nyord2024.words),
-  ];
-
   return c.render(<Domain domain={domain} status={status} />, {
     pageTitlePrefix: `Är ${domain} ledig?`,
-    noindex: !allowIndexingDomains.includes(domain),
+    noindex: !indexableDomain.includes(domain),
   });
 });
 
