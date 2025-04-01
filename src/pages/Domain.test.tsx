@@ -14,7 +14,7 @@ describe("Domain", () => {
     test("clarifies that it can be registered", () => {
       render(<Domain domain="example.se" status="FREE" />);
       expect(
-        screen.getByText("Den här domänen går att registrera"),
+        screen.getByText("Den här domänen går att registrera 👍"),
       ).toBeInTheDocument();
     });
   });
@@ -30,7 +30,7 @@ describe("Domain", () => {
     test("clarifies that it has already been registered", () => {
       render(<Domain domain="example.se" status="OCCUPIED" />);
       expect(
-        screen.getByText("Den här domänen har redan registrerats"),
+        screen.getByText("Den här domänen har redan registrerats 😞"),
       ).toBeInTheDocument();
     });
 
@@ -67,7 +67,7 @@ describe("Domain", () => {
       render(<Domain domain="example.se" status="NOT_VALID" />);
       expect(
         screen.getByText(
-          "Den här domänen går av någon anledning inte att registrera",
+          "Den här domänen går av någon anledning inte att registrera 😬",
         ),
       ).toBeInTheDocument();
     });
