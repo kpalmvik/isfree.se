@@ -39,7 +39,7 @@ app.get("/:domain{([^/]+[.]se)$}", async (c) => {
     "isfree.se",
     "ledig-doman.se",
     "🦄.se",
-    ...nyord2024.map((word) => `${word}.se`),
+    ...nyord2024.words.map((word) => `${word}.se`),
   ];
 
   return c.render(<Domain domain={domain} status={status} />, {
