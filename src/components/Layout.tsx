@@ -47,27 +47,28 @@ const Layout: FC = ({
     </head>
     <body>
       <div className="content">{children}</div>
-      <footer className="index-page__about">
-        <h2 className="about__title">Om isfree.se</h2>
-        <p className="about__text">
+      <footer className="footer">
+        <h2 className="footer__title">Om isfree.se</h2>
+        <p className="footer__text">
           Tjänsten utvecklas, uppdateras och sköts av{" "}
           <a href="https://kristofer.palmvik.se">Kristofer Palmvik</a> bara för
           att det är roligt.
         </p>
-        <a
-          href="https://github.com/kpalmvik/isfree.se"
-          className="about__source-code"
-        >
-          Källkod
-        </a>
-        {trunkver && (
-          <p className="about__version" data-nosnippet>
-            <a href="https://trunkver.org/" target="_blank" rel="noopener">
-              Trunkver
-            </a>{" "}
-            version: <code>{trunkver}</code>
-          </p>
-        )}
+        <ul class="footer__details">
+          <li>
+            <a href="https://github.com/kpalmvik/isfree.se">Källkod</a>
+          </li>
+          {trunkver && (
+            <li>
+              <p className="footer__version" data-nosnippet>
+                <a href="https://trunkver.org/" target="_blank" rel="noopener">
+                  TrunkVer
+                </a>{" "}
+                <code>{trunkver}</code>
+              </p>
+            </li>
+          )}
+        </ul>
       </footer>
     </body>
   </html>
