@@ -1,9 +1,11 @@
 interface NyordYear {
+  year: string;
   link: string;
   words: string[];
 }
 
 const nyord2024: NyordYear = {
+  year: "2024",
   link: "https://www.isof.se/svenska-spraket/nyord/nyordslistan-2024",
   words: [
     "aktivklubb",
@@ -41,4 +43,87 @@ const nyord2024: NyordYear = {
   ],
 };
 
-export { nyord2024 };
+const nyord2023: NyordYear = {
+  year: "2023",
+  link: "https://www.isof.se/svenska-spraket/nyord/lar-dig-mer-om-nyord/nyordslistor/nyordslistan-2023",
+  words: [
+    "ai-klonad",
+    "barbenheimer",
+    "bubbelhoppa",
+    "cyberresiliens",
+    "deinfluencing",
+    "det-svenska-tillståndet",
+    "dna-pass",
+    "dopaminfasta",
+    "dubbelswisha",
+    "evighetskemikalie",
+    "exposekonto",
+    "gargasnipe",
+    "generativ-ai",
+    "grön-kolonialism",
+    "hyschpengar",
+    "ick",
+    "insynsprincip",
+    "klivare",
+    "korankris",
+    "krigssponsor",
+    "känslighetsläsare",
+    "longtermism",
+    "menstrosa",
+    "multilojal",
+    "nepo-baby",
+    "neurodiversitet",
+    "prompta",
+    "relationism",
+    "situationship",
+    "snikflation",
+    "streamingfarm",
+    "tantparkour",
+    "toxisk-positivitet",
+    "vild-graviditet",
+  ],
+};
+
+const nyord2022: NyordYear = {
+  year: "2022",
+  link: "https://www.isof.se/svenska-spraket/nyord/lar-dig-mer-om-nyord/nyordslistor/nyordslistan-2022",
+  words: [
+    "accelerationism",
+    "agrivoltaisk",
+    "autokratisering",
+    "avkarbonisering",
+    "barbiecore",
+    "brösta",
+    "dödsdoula",
+    "edgelord",
+    "energifattigdom",
+    "energikrig",
+    "epadunk",
+    "falsk-majoritet",
+    "framefotboll",
+    "ha-dagen",
+    "hungersten",
+    "kamikazedrönare",
+    "klickkemi",
+    "klimatbiljett",
+    "klimatskadestånd",
+    "matfattigdom",
+    "munkmodell",
+    "njutningsäktenskap",
+    "permakris",
+    "putinpris",
+    "returmissbrukare",
+    "selfiemuseum",
+    "smr",
+    "smygflation",
+    "sporttvätt",
+    "spökflyg",
+    "urbexare",
+    "valförnekare",
+    "vertiport",
+    "virtuellt-stängsel",
+    "väntesorg",
+  ],
+};
+
+export { nyord2022, nyord2023, nyord2024 };
