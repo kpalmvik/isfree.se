@@ -22,6 +22,8 @@ const checkDomainStatus = async (domain: string) => {
   }
 };
 
+const domainsFromWords = (words: string[]) => words.map((word) => `${word}.se`);
+
 const app = new Hono();
 
 app.get(
@@ -34,14 +36,15 @@ app.get("/", (c) => c.render(<Index trunkver={trunkver.version} />, {}));
 app.get("/:domain{([^/]+[.]se)$}", async (c) => {
   const domain = c.req.param("domain");
   const status = await checkDomainStatus(domain);
+
   const allowIndexingDomains = [
     "example.se",
     "isfree.se",
     "ledig-doman.se",
     "🦄.se",
-    ...nyord2022.words.map((word) => `${word}.se`),
-    ...nyord2023.words.map((word) => `${word}.se`),
-    ...nyord2024.words.map((word) => `${word}.se`),
+    ...domainsFromWords(nyord2022.words),
+    ...domainsFromWords(nyord2023.words),
+    ...domainsFromWords(nyord2024.words),
   ];
 
   return c.render(<Domain domain={domain} status={status} />, {
