@@ -55,7 +55,10 @@ const Index = ({ trunkver }: { trunkver?: string }) => (
       </a>
       {trunkver && (
         <p className="about__version" data-nosnippet>
-          Version: <code>{trunkver}</code>
+          <a href="https://trunkver.org/" target="_blank" rel="noopener">
+            Trunkver
+          </a>{" "}
+          version: <code>{trunkver}</code> ( )
         </p>
       )}
     </footer>

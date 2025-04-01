@@ -160,6 +160,11 @@ a {
   text-align: center;
   font-size: 0.7rem;
   color: #2a7bc2;
+
+  a {
+    color: inherit;
+    border-bottom-color: #2a7bc2;
+  }
 }
 
 .url {
