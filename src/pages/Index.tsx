@@ -40,6 +40,20 @@ const Index = () => (
     <section className="index-page__nyord">
       <Nyord />
     </section>
+    <section>
+      <h2 className="example__title">
+        Kan min AI-assistent använda isfree.se?
+      </h2>
+      <p className="example__text">Kul att du frågar!</p>
+      <p className="example__text">
+        Titta på{" "}
+        <a href="https://mcp-server.isfree.se">
+          isfree.se Model Context Protocol (MCP) server
+        </a>{" "}
+        för att se hur du kan konfigurera din AI-assistent att kolla upp om en
+        svensk .se-domän är ledig.
+      </p>
+    </section>
   </>
 );
 
