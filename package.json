@@ -18,7 +18,7 @@
   "dependencies": {
     "hono": "^4.7.5",
     "idna-uts46-hx": "^6.0.7",
-    "luxon": "^3.6.0"
+    "luxon": "^3.6.1"
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.8.8",
@@ -27,7 +27,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@types/eslint-plugin-jsx-a11y": "^6.10.0",
-    "@types/luxon": "^3.4.2",
+    "@types/luxon": "^3.6.2",
     "@types/punycode": "^2.1.4",
     "@vitejs/plugin-react-swc": "^3.8.1",
     "eslint": "^9.24.0",
