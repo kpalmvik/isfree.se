@@ -16,7 +16,7 @@
     "typecheck": "npx tsc --build --noEmit"
   },
   "dependencies": {
-    "hono": "^4.7.5",
+    "hono": "^4.7.6",
     "idna-uts46-hx": "^6.0.7",
     "luxon": "^3.6.1"
   },
