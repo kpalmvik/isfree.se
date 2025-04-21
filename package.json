@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "hono": "^4.7.7",
-    "idna-uts46-hx": "^6.0.7",
+    "idna-uts46-hx": "^6.0.8",
     "luxon": "^3.6.1"
   },
   "devDependencies": {
