@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.8.22",
-    "@cloudflare/workers-types": "^4.20250428.0",
+    "@cloudflare/workers-types": "^4.20250505.0",
     "@eslint/js": "^9.25.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -40,6 +40,6 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.31.0",
     "vitest": "^3.1.2",
-    "wrangler": "^4.13.2"
+    "wrangler": "^4.14.1"
   }
 }
