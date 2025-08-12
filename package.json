@@ -27,7 +27,7 @@
     "@testing-library/jest-dom": "^6.6.4",
     "@testing-library/react": "^16.3.0",
     "@types/eslint-plugin-jsx-a11y": "^6.10.0",
-    "@types/luxon": "^3.6.2",
+    "@types/luxon": "^3.7.1",
     "@types/punycode": "^2.1.4",
     "@vitejs/plugin-react-swc": "^4.0.0",
     "eslint": "^9.33.0",
@@ -37,7 +37,7 @@
     "globals": "^16.3.0",
     "jsdom": "^26.1.0",
     "prettier": "3.6.2",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "typescript-eslint": "^8.39.1",
     "vitest": "^3.2.4",
     "wrangler": "^4.28.1"
