@@ -18,7 +18,7 @@
   "dependencies": {
     "hono": "^4.9.5",
     "idna-uts46-hx": "^6.0.9",
-    "luxon": "^3.7.1"
+    "luxon": "^3.7.2"
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.8.68",
