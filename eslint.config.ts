@@ -4,8 +4,9 @@ import tseslint from "typescript-eslint";
 import react from "eslint-plugin-react";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import testingLibrary from "eslint-plugin-testing-library";
+import { defineConfig } from "eslint/config";
 
-export default tseslint.config(
+export default defineConfig([
   { ignores: ["node_modules", ".wrangler"] },
   {
     languageOptions: {
@@ -16,8 +17,8 @@ export default tseslint.config(
     },
   },
   eslint.configs.recommended,
-  tseslint.configs.strictTypeChecked,
-  tseslint.configs.stylisticTypeChecked,
+  ...tseslint.configs.strictTypeChecked,
+  ...tseslint.configs.stylisticTypeChecked,
   {
     languageOptions: {
       parserOptions: {
@@ -25,7 +26,7 @@ export default tseslint.config(
       },
     },
   },
-  tseslint.configs.stylistic,
+  ...tseslint.configs.stylistic,
   react.configs.flat["jsx-runtime"],
   jsxA11y.flatConfigs.recommended,
   {
@@ -50,4 +51,4 @@ export default tseslint.config(
       ],
     },
   },
-);
+]);
