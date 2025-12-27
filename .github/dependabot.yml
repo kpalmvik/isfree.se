@@ -9,6 +9,8 @@ updates:
       interval: "weekly"
       day: "monday"
       time: "02:00"
+    cooldown:
+      default-days: 14
     open-pull-requests-limit: 20
     groups:
       vitest:
