@@ -4,13 +4,13 @@ const Nyord = () => {
   const allNyordYears = [nyord2025, nyord2024, nyord2023, nyord2022];
 
   return (
-    <ul class="nyord-years">
+    <ul className="nyord-years">
       {allNyordYears.map(({ year, link, words }, i) => {
         const previousYear = allNyordYears[i + 1]?.year;
         const nextYear = allNyordYears[i - 1]?.year;
 
         return (
-          <li key={year} class="nyord-year" id={`nyord-${year}`}>
+          <li key={year} className="nyord-year" id={`nyord-${year}`}>
             <div>
               <h2 className="example__title">Nyord {year}</h2>
               <p className="example__text">

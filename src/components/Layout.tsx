@@ -54,7 +54,7 @@ const Layout: FC = ({
           <a href="https://kristofer.palmvik.se">Kristofer Palmvik</a> bara för
           att det är roligt.
         </p>
-        <ul class="footer__details">
+        <ul className="footer__details">
           <li>
             <a href="https://github.com/kpalmvik/isfree.se">Källkod</a>
           </li>
