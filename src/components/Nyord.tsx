@@ -1,15 +1,13 @@
-import { nyord2022, nyord2023, nyord2024, nyord2025 } from "./nyord-data";
+import { allMostRecentFirst } from "./nyord-data";
 
 const Nyord = () => {
-  const allNyordYears = [nyord2025, nyord2024, nyord2023, nyord2022];
-
   return (
     <>
       <h2 className="example__title">Nyord</h2>
       <ul className="nyord-years">
-        {allNyordYears.map(({ year, link, words }, i) => {
-          const previousYear = allNyordYears[i + 1]?.year;
-          const nextYear = allNyordYears[i - 1]?.year;
+        {allMostRecentFirst.map(({ year, link, words }, i) => {
+          const previousYear = allMostRecentFirst[i + 1]?.year;
+          const nextYear = allMostRecentFirst[i - 1]?.year;
 
           return (
             <li key={year} className="nyord-year" id={`nyord-${year}`}>

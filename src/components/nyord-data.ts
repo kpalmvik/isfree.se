@@ -160,4 +160,6 @@ const nyord2022: NyordYear = {
   ],
 };
 
-export { nyord2022, nyord2023, nyord2024, nyord2025 };
+const allMostRecentFirst = [nyord2025, nyord2024, nyord2023, nyord2022];
+
+export { nyord2022, nyord2023, nyord2024, nyord2025, allMostRecentFirst };

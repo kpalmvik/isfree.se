@@ -6,12 +6,7 @@ import Index from "./pages/Index";
 import Layout, { Props as LayoutProps } from "./components/Layout";
 import seFreeLocal from "./seFreeLocal";
 import trunkver from "./trunkver.json";
-import {
-  nyord2022,
-  nyord2023,
-  nyord2024,
-  nyord2025,
-} from "./components/nyord-data";
+import { allMostRecentFirst as allNyordYears } from "./components/nyord-data";
 declare module "hono" {
   interface ContextRenderer {
     // eslint-disable-next-line @typescript-eslint/prefer-function-type
@@ -27,17 +22,15 @@ const checkDomainStatus = async (domain: string) => {
   }
 };
 
-const domainsFromWords = (words: string[]) => words.map((word) => `${word}.se`);
+const nyordDomains = () =>
+  allNyordYears.flatMap(({ words }) => words).map((word) => `${word}.se`);
 
 const indexableDomain = [
   "example.se",
   "isfree.se",
   "ledig-doman.se",
   "🦄.se",
-  ...domainsFromWords(nyord2022.words),
-  ...domainsFromWords(nyord2023.words),
-  ...domainsFromWords(nyord2024.words),
-  ...domainsFromWords(nyord2025.words),
+  ...nyordDomains(),
 ];
 
 const app = new Hono();
