@@ -160,6 +160,62 @@ const nyord2022: NyordYear = {
   ],
 };
 
-const allMostRecentFirst = [nyord2025, nyord2024, nyord2023, nyord2022];
+const nyord2021: NyordYear = {
+  year: "2021",
+  link: "https://www.isof.se/svenska-spraket/nyord/nyordslistor/nyordslistan-2021",
+  words: [
+    "anosmi",
+    "coronabubbla",
+    "coronahund",
+    "delningsboende",
+    "djuränkling",
+    "domedagsskrollande",
+    "eftervåld",
+    "fono",
+    "gangfluencer",
+    "gaslighta",
+    "generation-corona",
+    "genombrottsinfektion",
+    "giggare",
+    "hybridarbete",
+    "hybridmöte",
+    "jobbonär",
+    "jukeboxbio",
+    "koldioxidsug",
+    "kryptokonst",
+    "ljushare",
+    "maskne",
+    "metaversum",
+    "mikrovana",
+    "mobilitetshubb",
+    "nettonollmål",
+    "piratbibliotek",
+    "postcovid",
+    "snällvägg",
+    "spökkök",
+    "svinna",
+    "svinnlåda",
+    "tippningspunkt",
+    "vaccinnationalism",
+    "vaccinpass",
+    "zoomtrötthet",
+    "återförvildande",
+  ],
+};
 
-export { nyord2022, nyord2023, nyord2024, nyord2025, allMostRecentFirst };
+const allMostRecentFirst = [
+  nyord2025,
+  nyord2024,
+  nyord2023,
+  nyord2022,
+  nyord2021,
+];
+
+export {
+  nyord2021,
+  nyord2022,
+  nyord2023,
+  nyord2024,
+  nyord2025,
+  allMostRecentFirst,
+};
