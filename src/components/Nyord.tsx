@@ -15,7 +15,7 @@ const Nyord = () => {
               <h2 className="example__title">Nyord {year}</h2>
               <p className="example__text">
                 Kolla om något av orden från{" "}
-                <a href={link} target="_blank" rel="noopener" className="url">
+                <a href={link} target="_blank" rel="noopener">
                   nyordslistan&nbsp;{year}
                 </a>{" "}
                 är lediga som domännamn.
