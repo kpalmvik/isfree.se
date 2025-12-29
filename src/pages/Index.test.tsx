@@ -20,6 +20,17 @@ describe("Index", () => {
     );
   });
 
+  test("renders Nyord section", () => {
+    render(<Index />);
+
+    const nyordHeading = screen.getByRole("heading", {
+      level: 2,
+      name: "Nyord",
+    });
+
+    expect(nyordHeading).toBeInTheDocument();
+  });
+
   test("renders a search form with a text input and a button", () => {
     render(<Index />);
 
