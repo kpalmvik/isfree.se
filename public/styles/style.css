@@ -1,11 +1,19 @@
+:root {
+  --color-sky: #1763a6;
+  --color-sky-light: #70a8d9;
+  --color-light: #f2f2f2;
+  --color-gold: #f2cc00;
+  --color-gold-dark: #9c9154;
+  --color-dusk: #999999;
+}
 :root,
 body {
   min-height: 100dvh;
-  color: #f2f2f2;
+  color: var(--color-light);
 }
 
 body {
-  background: #1763a6;
+  background: var(--color-sky);
   padding: 1rem 2rem;
 }
 
@@ -15,8 +23,8 @@ body {
 }
 
 a {
-  color: #f2cc00;
-  border-bottom: 2px solid #f2cc00;
+  color: var(--color-gold);
+  border-bottom: 2px solid var(--color-gold);
 }
 
 .title {
@@ -79,17 +87,17 @@ a {
   position: relative;
   font-size: 1.2rem;
   padding: 0.2rem 0.3rem;
-  border: 2px solid #f2cc00;
+  border: 2px solid var(--color-gold);
   border-radius: 0.5rem;
   flex-grow: 1;
 
   &::placeholder {
-    color: hsl(51, 0%, 60%);
+    color: var(--color-dusk);
   }
 
   &:focus {
     outline: none;
-    border-color: rgb(156, 145, 84);
+    border-color: var(--color-gold-dark);
 
     &::placeholder {
       color: transparent;
@@ -101,9 +109,9 @@ a {
   font-size: 1.2rem;
   padding: 0.2rem 1rem;
   border-radius: 0.5rem;
-  border: 2px solid #f2cc00;
-  background-color: #f2cc00;
-  color: #1763a6;
+  border: 2px solid var(--color-gold);
+  background-color: var(--color-gold);
+  color: var(--color-sky);
   cursor: pointer;
 }
 
@@ -174,8 +182,8 @@ a {
   gap: 1rem;
   list-style: none;
   > li > a {
-    color: #f2f2f2;
-    border-bottom-color: #f2f2f2;
+    color: var(--color-light);
+    border-bottom-color: var(--color-light);
     border-bottom-width: 1px;
   }
 }
@@ -194,7 +202,7 @@ a {
   padding: 1.5rem;
   justify-content: center;
   align-items: center;
-  color: #70a8d9;
+  color: var(--color-sky-light);
   font-size: 0.7rem;
 
   a {
@@ -221,16 +229,16 @@ a {
 }
 
 .url {
-  border-bottom: 2px solid #f2cc00;
+  border-bottom: 2px solid var(--color-gold);
 }
 
 .url-nobreak {
-  color: #f2cc00;
+  color: var(--color-gold);
 }
 
 .url,
 .url-nolink {
-  color: #f2cc00;
+  color: var(--color-gold);
 
   /* https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
   overflow-wrap: break-word;
