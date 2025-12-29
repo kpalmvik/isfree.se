@@ -40,7 +40,7 @@ const nyord2025: NyordYear = {
 
 const nyord2024: NyordYear = {
   year: "2024",
-  link: "https://www.isof.se/svenska-spraket/nyord/nyordslistan-2024",
+  link: "https://www.isof.se/svenska-spraket/nyord/nyordslistor/nyordslistan-2024",
   words: [
     "aktivklubb",
     "ankkurva",
@@ -79,7 +79,7 @@ const nyord2024: NyordYear = {
 
 const nyord2023: NyordYear = {
   year: "2023",
-  link: "https://www.isof.se/svenska-spraket/nyord/lar-dig-mer-om-nyord/nyordslistor/nyordslistan-2023",
+  link: "https://www.isof.se/svenska-spraket/nyord/nyordslistor/nyordslistan-2023",
   words: [
     "ai-klonad",
     "barbenheimer",
@@ -120,7 +120,7 @@ const nyord2023: NyordYear = {
 
 const nyord2022: NyordYear = {
   year: "2022",
-  link: "https://www.isof.se/svenska-spraket/nyord/lar-dig-mer-om-nyord/nyordslistor/nyordslistan-2022",
+  link: "https://www.isof.se/svenska-spraket/nyord/nyordslistor/nyordslistan-2022",
   words: [
     "accelerationism",
     "agrivoltaisk",
