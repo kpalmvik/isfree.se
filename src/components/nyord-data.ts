@@ -4,6 +4,40 @@ interface NyordYear {
   words: string[];
 }
 
+const nyord2025: NyordYear = {
+  year: "2025",
+  link: "https://www.isof.se/svenska-spraket/nyord/nyordslistan-2025",
+  words: [
+    "ai-agent",
+    "balkongkraftverk",
+    "beredskapsodling",
+    "broligark",
+    "dei",
+    "digital-suveränitet",
+    "drönarmur",
+    "dunkelflaute",
+    "existentiell-hållbarhet",
+    "finfluerare",
+    "handelsbazooka",
+    "hjärnröta",
+    "hämndtull",
+    "klonförening",
+    "kulturljudzon",
+    "mammakorv",
+    "matskatteväxling",
+    "pethtest",
+    "quadrobics",
+    "ragebait",
+    "robusthöjande",
+    "sixseven",
+    "skibidi",
+    "solsambruk",
+    "trumpviskare",
+    "vibbkodning",
+    "wokehöger",
+  ],
+};
+
 const nyord2024: NyordYear = {
   year: "2024",
   link: "https://www.isof.se/svenska-spraket/nyord/nyordslistan-2024",
@@ -126,4 +160,4 @@ const nyord2022: NyordYear = {
   ],
 };
 
-export { nyord2022, nyord2023, nyord2024 };
+export { nyord2022, nyord2023, nyord2024, nyord2025 };

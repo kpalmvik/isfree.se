@@ -6,7 +6,12 @@ import Index from "./pages/Index";
 import Layout, { Props as LayoutProps } from "./components/Layout";
 import seFreeLocal from "./seFreeLocal";
 import trunkver from "./trunkver.json";
-import { nyord2022, nyord2023, nyord2024 } from "./components/nyord-data";
+import {
+  nyord2022,
+  nyord2023,
+  nyord2024,
+  nyord2025,
+} from "./components/nyord-data";
 declare module "hono" {
   interface ContextRenderer {
     // eslint-disable-next-line @typescript-eslint/prefer-function-type
@@ -32,6 +37,7 @@ const indexableDomain = [
   ...domainsFromWords(nyord2022.words),
   ...domainsFromWords(nyord2023.words),
   ...domainsFromWords(nyord2024.words),
+  ...domainsFromWords(nyord2025.words),
 ];
 
 const app = new Hono();

@@ -1,4 +1,4 @@
-import { nyord2022, nyord2023, nyord2024 } from "./nyord-data";
+import { nyord2022, nyord2023, nyord2024, nyord2025 } from "./nyord-data";
 
 const getRandomItem = <T,>(array: T[]): T => {
   const randomIndex = Math.floor(Math.random() * array.length);
@@ -6,7 +6,9 @@ const getRandomItem = <T,>(array: T[]): T => {
 };
 
 const Nyord = () => {
-  const nyord = getRandomItem([nyord2022, nyord2023, nyord2024]);
+  const allNyordYears = [nyord2022, nyord2023, nyord2024, nyord2025];
+
+  const nyord = getRandomItem(allNyordYears);
 
   return (
     <>
