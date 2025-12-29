@@ -146,6 +146,40 @@ a {
   margin-bottom: 0.1rem;
 }
 
+.nyord-years {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.nyord-year {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+  min-width: 100%;
+  scroll-snap-align: start;
+  padding-bottom: 2rem;
+}
+
+.nyord-nav {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  list-style: none;
+  > li > a {
+    color: #f2f2f2;
+    border-bottom-color: #f2f2f2;
+    border-bottom-width: 1px;
+  }
+}
+
 .footer {
   max-width: 30rem;
   margin: 0 auto;
