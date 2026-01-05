@@ -7,7 +7,7 @@ const DomainHeading = ({
 }) => {
   if (status === "FREE") {
     return (
-      <h1 className="title">
+      <h1 className="title" data-nosnippet>
         <span className="url-nolink">{domain}</span> är ledig!
       </h1>
     );
@@ -15,7 +15,7 @@ const DomainHeading = ({
 
   if (status === "OCCUPIED") {
     return (
-      <h1 className="title">
+      <h1 className="title" data-nosnippet>
         <span className="url-nolink">{domain}</span> är upptagen!
       </h1>
     );

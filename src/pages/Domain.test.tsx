@@ -17,6 +17,18 @@ describe("Domain", () => {
         screen.getByText("Den här domänen går att registrera 👍"),
       ).toBeInTheDocument();
     });
+
+    test("prevents the result title from being shown in search engine snippets", () => {
+      render(<Domain domain="available.se" status="FREE" />);
+      expect(screen.getByRole("heading", { level: 1 })).toHaveAttribute(
+        "data-nosnippet",
+      );
+    });
+
+    test("prevents the main content from being shown in search engine snippets", () => {
+      render(<Domain domain="available.se" status="FREE" />);
+      expect(screen.getByRole("main")).toHaveAttribute("data-nosnippet");
+    });
   });
 
   describe("when the domain is already registered", () => {
@@ -53,6 +65,18 @@ describe("Domain", () => {
       expect(whoisLink).toHaveAttribute("href", "http://example.se/");
       expect(whoisLink).toHaveAttribute("rel", "noopener noreferrer nofollow");
     });
+
+    test("prevents the result title from being shown in search engine snippets", () => {
+      render(<Domain domain="example.se" status="OCCUPIED" />);
+      expect(screen.getByRole("heading", { level: 1 })).toHaveAttribute(
+        "data-nosnippet",
+      );
+    });
+
+    test("prevents the main content from being shown in search engine snippets", () => {
+      render(<Domain domain="example.se" status="OCCUPIED" />);
+      expect(screen.getByRole("main")).toHaveAttribute("data-nosnippet");
+    });
   });
 
   describe("when the domain is invalid", () => {
@@ -64,12 +88,24 @@ describe("Domain", () => {
     });
 
     test("clarifies that it cannot be registered", () => {
-      render(<Domain domain="example.se" status="NOT_VALID" />);
+      render(<Domain domain="#invalid#" status="NOT_VALID" />);
       expect(
         screen.getByText(
           "Den här domänen går av någon anledning inte att registrera 😬",
         ),
       ).toBeInTheDocument();
+    });
+
+    test("prevents the result title from being shown in search engine snippets", () => {
+      render(<Domain domain="#invalid#" status="NOT_VALID" />);
+      expect(screen.getByRole("heading", { level: 1 })).not.toHaveAttribute(
+        "data-nosnippet",
+      );
+    });
+
+    test("prevents the main content from being shown in search engine snippets", () => {
+      render(<Domain domain="#invalid#" status="NOT_VALID" />);
+      expect(screen.getByRole("main")).toHaveAttribute("data-nosnippet");
     });
   });
 });

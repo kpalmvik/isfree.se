@@ -20,7 +20,7 @@ const Domain = ({ domain, status }: Props) => {
         <div className="pre-title">Är {domain} ledig?</div>
         <DomainHeading domain={domain} status={status} />
       </header>
-      <main>
+      <main data-nosnippet>
         <DomainResult domain={domain} status={status} />
       </main>
       <footer>
