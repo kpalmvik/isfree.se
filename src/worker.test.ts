@@ -31,6 +31,14 @@ describe("isfree.se", () => {
       const body = await res.text();
       expect(body).toContain('<h1 class="title">isfree.se</h1>');
     });
+
+    test("is preventing the trunkver from being snippeted", async () => {
+      const res = await worker.request("/", {}, env);
+      const body = await res.text();
+      expect(body).toContain(
+        '<p class="footer__version" data-nosnippet="true">',
+      );
+    });
   });
 
   describe("GET /domain without .se suffix", () => {
