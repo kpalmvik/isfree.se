@@ -96,7 +96,7 @@ describe("isfree.se", () => {
       const body = await res.text();
 
       expect(body).toContain(
-        `<h1 class="title"><span class="url-nolink">${domain}</span> är ledig!</h1>`,
+        `<h1 class="title" data-nosnippet="true"><span class="url-nolink">${domain}</span> är ledig!</h1>`,
       );
       expectDomainTitle(body, domain);
     };
@@ -106,7 +106,7 @@ describe("isfree.se", () => {
       const body = await res.text();
 
       expect(body).toContain(
-        `<h1 class="title"><span class="url-nolink">${domain}</span> är upptagen!</h1>`,
+        `<h1 class="title" data-nosnippet="true"><span class="url-nolink">${domain}</span> är upptagen!</h1>`,
       );
       expectDomainTitle(body, domain);
     };
