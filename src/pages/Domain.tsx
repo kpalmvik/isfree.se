@@ -17,6 +17,7 @@ const Domain = ({ domain, status }: Props) => {
   return (
     <>
       <header>
+        <div className="pre-title">Är {domain} ledig?</div>
         <DomainHeading domain={domain} status={status} />
       </header>
       <main>
