@@ -25,7 +25,7 @@
     "@cloudflare/workers-types": "^4.20260124.0",
     "@eslint/js": "^9.39.2",
     "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.0",
+    "@testing-library/react": "^16.3.2",
     "@types/eslint-plugin-jsx-a11y": "^6.10.1",
     "@types/luxon": "^3.7.1",
     "@types/punycode": "^2.1.4",
