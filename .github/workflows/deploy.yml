@@ -50,3 +50,12 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+      - name: Create GitHub Release 🎉
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUNKVER: ${{ steps.trunkver.outputs.trunkver }}
+        run: |
+          gh release create "v$TRUNKVER" \
+            --title "Release v$TRUNKVER" \
+            --notes "Automated release for deployment v$TRUNKVER" \
+            --target ${{ github.sha }}
