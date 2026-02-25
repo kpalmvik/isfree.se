@@ -29,7 +29,7 @@
     "@types/eslint-plugin-jsx-a11y": "^6.10.1",
     "@types/luxon": "^3.7.1",
     "@types/punycode": "^2.1.4",
-    "@vitejs/plugin-react-swc": "^4.2.2",
+    "@vitejs/plugin-react-swc": "^4.2.3",
     "eslint": "^9.39.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
