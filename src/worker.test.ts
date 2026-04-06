@@ -1,14 +1,9 @@
-import { env, fetchMock } from "cloudflare:test";
-import { beforeAll, afterEach, describe, expect, test } from "vitest";
+import { env } from "cloudflare:workers";
+import { afterEach, describe, expect, test, vi } from "vitest";
 import worker from "./worker.tsx";
 
-beforeAll(() => {
-  fetchMock.activate();
-  fetchMock.disableNetConnect();
-});
-
 afterEach(() => {
-  fetchMock.assertNoPendingInterceptors();
+  vi.restoreAllMocks();
 });
 
 describe("isfree.se", () => {
@@ -79,12 +74,37 @@ describe("isfree.se", () => {
   });
 
   describe("GET /domain.se with .se suffix", () => {
+    const mockIisApi = (
+      responseFactory: (url: URL) => Response | undefined,
+    ) => {
+      vi.spyOn(globalThis, "fetch").mockImplementation((input, init) => {
+        const request = new Request(input, init);
+        const url = new URL(request.url);
+
+        if (url.origin !== "http://free.iis.se" || url.pathname !== "/free") {
+          throw new Error(`No mock found for ${request.method} ${request.url}`);
+        }
+
+        const response = responseFactory(url);
+        if (!response) {
+          throw new Error(`No mock found for ${request.method} ${request.url}`);
+        }
+
+        return Promise.resolve(response);
+      });
+    };
+
     const mockResponse = (idnEncodedDomain: string, status: Status) => {
       const domainStatus = status.toLowerCase();
-      fetchMock
-        .get("http://free.iis.se")
-        .intercept({ path: "/free", query: { q: idnEncodedDomain } })
-        .reply(200, `${domainStatus} ${idnEncodedDomain}`);
+      mockIisApi((url) => {
+        if (url.searchParams.get("q") !== idnEncodedDomain) {
+          return undefined;
+        }
+
+        return new Response(`${domainStatus} ${idnEncodedDomain}`, {
+          status: 200,
+        });
+      });
     };
 
     const expectDomainTitle = (body: string, domain: string) => {
@@ -203,10 +223,13 @@ describe("isfree.se", () => {
     });
 
     test("gives an error page on a 404 from free.iis.se API", async () => {
-      fetchMock
-        .get("http://free.iis.se")
-        .intercept({ path: "/free", query: { q: "example.se" } })
-        .reply(404, "Not found");
+      mockIisApi((url) => {
+        if (url.searchParams.get("q") !== "example.se") {
+          return undefined;
+        }
+
+        return new Response("Not found", { status: 404 });
+      });
       const res = await worker.request("/example.se", {}, env);
 
       expect(res.status).toBe(200);
@@ -217,10 +240,13 @@ describe("isfree.se", () => {
     });
 
     test("gives an error page on a broken response from free.iis.se API", async () => {
-      fetchMock
-        .get("http://free.iis.se")
-        .intercept({ path: "/free", query: { q: "example.se" } })
-        .reply(200, "<completely broken response>");
+      mockIisApi((url) => {
+        if (url.searchParams.get("q") !== "example.se") {
+          return undefined;
+        }
+
+        return new Response("<completely broken response>", { status: 200 });
+      });
       const res = await worker.request("/example.se", {}, env);
 
       expect(res.status).toBe(200);
