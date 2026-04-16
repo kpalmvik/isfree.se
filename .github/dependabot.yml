@@ -20,21 +20,18 @@ updates:
         update-types:
           - "minor"
           - "patch"
-      typescript:
-        patterns:
-          - "typescript"
-          - "@types/*"
       wrangler:
         patterns:
           - "wrangler"
           - "@cloudflare/workers-types"
-      eslint:
+      ts-linting:
         patterns:
           - "eslint"
           - "eslint-*"
           - "@eslint/*"
           - "typescript-eslint"
-
+          - "typescript"
+          - "@types/*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
