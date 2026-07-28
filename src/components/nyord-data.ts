@@ -212,10 +212,10 @@ const allMostRecentFirst = [
 ];
 
 export {
+  allMostRecentFirst,
   nyord2021,
   nyord2022,
   nyord2023,
   nyord2024,
   nyord2025,
-  allMostRecentFirst,
 };

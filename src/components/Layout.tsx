@@ -1,5 +1,4 @@
-import type { FC } from "hono/jsx";
-import { ReactElement } from "hono/jsx";
+import type { FC, ReactElement } from "hono/jsx";
 
 export interface Props {
   pageTitlePrefix?: string;

@@ -1,12 +1,12 @@
 import { Hono } from "hono";
 import { jsxRenderer } from "hono/jsx-renderer";
-
+import Layout, { type Props as LayoutProps } from "./components/Layout";
+import { allMostRecentFirst as allNyordYears } from "./components/nyord-data";
 import Domain from "./pages/Domain";
 import Index from "./pages/Index";
-import Layout, { Props as LayoutProps } from "./components/Layout";
 import seFreeLocal from "./seFreeLocal";
 import trunkver from "./trunkver.json";
-import { allMostRecentFirst as allNyordYears } from "./components/nyord-data";
+
 declare module "hono" {
   interface ContextRenderer {
     // eslint-disable-next-line @typescript-eslint/prefer-function-type

@@ -256,6 +256,7 @@ a {
   word-wrap: break-word;
   -ms-word-break: break-all;
   word-break: break-all;
+  /* biome-ignore lint/suspicious/noDuplicateProperties: intentional legacy fallback from the snippet above */
   word-break: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;

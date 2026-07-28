@@ -30,23 +30,21 @@ const Nyord = () => {
                 </ul>
               </div>
               <ul className="nyord-nav">
-                <>
-                  <li>
-                    {nextYear && (
-                      <a href={`#nyord-${nextYear}`} className="url">
-                        ← Nyord från {nextYear}
-                      </a>
-                    )}
-                  </li>
+                <li>
+                  {nextYear && (
+                    <a href={`#nyord-${nextYear}`} className="url">
+                      ← Nyord från {nextYear}
+                    </a>
+                  )}
+                </li>
 
-                  <li>
-                    {previousYear && (
-                      <a href={`#nyord-${previousYear}`} className="url">
-                        Nyord från {previousYear} →
-                      </a>
-                    )}
-                  </li>
-                </>
+                <li>
+                  {previousYear && (
+                    <a href={`#nyord-${previousYear}`} className="url">
+                      Nyord från {previousYear} →
+                    </a>
+                  )}
+                </li>
               </ul>
             </li>
           );

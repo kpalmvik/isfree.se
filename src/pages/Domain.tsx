@@ -1,8 +1,7 @@
 import { DateTime } from "luxon";
-
-import Instructions from "../components/Instructions";
-import DomainResult from "../components/DomainResult";
 import DomainHeading from "../components/DomainHeading";
+import DomainResult from "../components/DomainResult";
+import Instructions from "../components/Instructions";
 
 interface Props {
   domain: string;

@@ -16,7 +16,9 @@ const SearchForm = () => (
         title="Endast bokstäver, siffror och bindestreck."
       />
     </label>
-    <button className="search-form__submit">Sök</button>
+    <button type="submit" className="search-form__submit">
+      Sök
+    </button>
   </form>
 );
 
