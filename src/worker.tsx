@@ -9,7 +9,7 @@ import trunkver from "./trunkver.json";
 
 declare module "hono" {
   interface ContextRenderer {
-    // eslint-disable-next-line @typescript-eslint/prefer-function-type
+    // biome-ignore lint/style/useShorthandFunctionType: declaration merging into hono's ContextRenderer requires an interface, not a type alias
     (content: string | Promise<string>, props: LayoutProps): Response;
   }
 }

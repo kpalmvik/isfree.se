@@ -26,10 +26,7 @@ updates:
           - "@cloudflare/workers-types"
       ts-linting:
         patterns:
-          - "eslint"
-          - "eslint-*"
-          - "@eslint/*"
-          - "typescript-eslint"
+          - "@biomejs/biome"
           - "typescript"
           - "@types/*"
   - package-ecosystem: "github-actions"
