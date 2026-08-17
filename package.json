@@ -21,12 +21,12 @@
     "luxon": "^3.7.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.5",
+    "@biomejs/biome": "2.5.6",
     "@cloudflare/vitest-pool-workers": "^0.20.3",
     "@cloudflare/workers-types": "^5.20260713.1",
     "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.3.2",
-    "@types/luxon": "^3.7.2",
+    "@types/luxon": "^3.7.3",
     "@types/punycode": "^2.1.4",
     "@vitejs/plugin-react-swc": "^4.3.2",
     "jsdom": "^29.1.1",
