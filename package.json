@@ -24,7 +24,7 @@
     "@biomejs/biome": "2.5.5",
     "@cloudflare/vitest-pool-workers": "^0.21.3",
     "@cloudflare/workers-types": "^5.20260817.1",
-    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.2",
     "@types/luxon": "^3.7.2",
     "@types/punycode": "^2.1.4",
