@@ -31,7 +31,7 @@
     "@vitejs/plugin-react-swc": "^4.3.3",
     "jsdom": "^30.0.1",
     "typescript": "^7.0.2",
-    "vitest": "^4.1.10",
+    "vitest": "^4.1.11",
     "wrangler": "^4.123.0"
   }
 }
