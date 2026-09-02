@@ -12,24 +12,46 @@ updates:
     cooldown:
       default-days: 14
     open-pull-requests-limit: 20
+    # Every group is restricted to minor/patch so that a major version never
+    # blocks the rest of its group. Majors fall out into their own PR and are
+    # reviewed on their own merits.
     groups:
-      vitest:
-        patterns:
-          - "@cloudflare/vitest-pool-workers"
-          - "vitest"
-        update-types:
-          - "minor"
-          - "patch"
-      wrangler:
+      # @cloudflare/vitest-pool-workers pins an exact wrangler version as a
+      # direct dependency, so the three must move together or CI can pass on a
+      # mismatched toolchain.
+      cloudflare:
         patterns:
           - "wrangler"
           - "@cloudflare/workers-types"
+          - "@cloudflare/vitest-pool-workers"
+        update-types:
+          - "minor"
+          - "patch"
+      testing:
+        patterns:
+          - "vitest"
+          - "jsdom"
+          - "@testing-library/*"
+          - "@vitejs/plugin-react-swc"
+        update-types:
+          - "minor"
+          - "patch"
       ts-linting:
         patterns:
           - "@biomejs/biome"
           - "typescript"
           - "@types/*"
+        update-types:
+          - "minor"
+          - "patch"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
