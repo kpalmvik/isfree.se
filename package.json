@@ -25,7 +25,7 @@
     "@cloudflare/vitest-pool-workers": "^0.22.0",
     "@cloudflare/workers-types": "^5.20260823.1",
     "@testing-library/jest-dom": "^7.0.1",
-    "@testing-library/react": "^16.3.2",
+    "@testing-library/react": "^16.3.3",
     "@types/luxon": "^3.7.5",
     "@types/punycode": "^2.1.4",
     "@vitejs/plugin-react-swc": "^4.3.3",
