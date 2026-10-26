@@ -23,7 +23,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
     "@cloudflare/vitest-pool-workers": "^0.23.0",
-    "@cloudflare/workers-types": "^5.20261009.1",
+    "@cloudflare/workers-types": "^5.20261012.1",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@types/luxon": "^3.7.6",
