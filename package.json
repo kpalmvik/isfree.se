@@ -16,12 +16,12 @@
     "typecheck": "npx tsc --build --noEmit"
   },
   "dependencies": {
-    "hono": "^4.13.16",
+    "hono": "^4.13.18",
     "idna-uts46-hx": "^6.2.4",
     "luxon": "^3.7.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.6.4",
+    "@biomejs/biome": "2.6.7",
     "@cloudflare/vitest-plugin": "^1.8.2",
     "@cloudflare/workers-types": "^5.20261026.1",
     "@testing-library/jest-dom": "^7.0.1",
