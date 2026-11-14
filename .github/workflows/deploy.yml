@@ -30,6 +30,10 @@ jobs:
     name: Deploy isfree.se
     steps:
       - uses: actions/checkout@v7
+        with:
+          # Full history and tags, so the release notes can list every commit
+          # since the previous release.
+          fetch-depth: 0
       - name: Generate trunkver
         id: trunkver
         uses: crftd-tech/trunkver@main
@@ -55,9 +59,41 @@ jobs:
         run: |
           if gh release view "v$TRUNKVER" &> /dev/null; then
             echo "Release v$TRUNKVER already exists, skipping creation"
-          else
-            gh release create "v$TRUNKVER" \
-              --title "Release v$TRUNKVER" \
-              --notes "Automated release for deployment v$TRUNKVER" \
-              --target ${{ github.sha }}
+            exit 0
           fi
+
+          # List every commit on main since the previous release. Walking only
+          # the first parent shows each merged PR once, using its PR title
+          # (the first body line of GitHub's merge commit) instead of
+          # "Merge pull request #N from ...".
+          prev=$(gh release list --limit 1 --exclude-drafts --json tagName -q '.[0].tagName')
+          if [ -n "$prev" ] && git rev-parse -q --verify "refs/tags/$prev" > /dev/null; then
+            range="$prev..$GITHUB_SHA"
+          else
+            range="$GITHUB_SHA~1..$GITHUB_SHA"
+          fi
+
+          {
+            echo "## Changes"
+            echo
+            git log --first-parent --format='%h%x1f%s%x1f%b%x1e' "$range" |
+              while IFS=$'\x1f' read -r -d $'\x1e' hash subject body; do
+                hash=${hash//$'\n'/}
+                if [[ $subject =~ ^Merge\ pull\ request\ \#([0-9]+) ]]; then
+                  title=$(printf '%s\n' "$body" | sed '/^[[:space:]]*$/d' | head -1)
+                  echo "- ${title:-$subject} (#${BASH_REMATCH[1]})"
+                else
+                  echo "- $subject ($hash)"
+                fi
+              done
+            if [ -n "$prev" ]; then
+              echo
+              echo "**Full diff:** https://github.com/$GITHUB_REPOSITORY/compare/$prev...v$TRUNKVER"
+            fi
+          } > release-notes.md
+          cat release-notes.md
+
+          gh release create "v$TRUNKVER" \
+            --title "Release v$TRUNKVER" \
+            --notes-file release-notes.md \
+            --target "$GITHUB_SHA"
