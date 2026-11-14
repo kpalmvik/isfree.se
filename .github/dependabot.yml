@@ -32,7 +32,7 @@ updates:
           - "vitest"
           - "jsdom"
           - "@testing-library/*"
-          - "@vitejs/plugin-react-swc"
+          - "@vitejs/plugin-react"
         update-types:
           - "minor"
           - "patch"
