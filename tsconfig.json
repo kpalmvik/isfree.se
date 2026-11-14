@@ -12,7 +12,7 @@
     "types": [
       "vitest/globals",
       "@cloudflare/workers-types/experimental",
-      "@cloudflare/vitest-pool-workers"
+      "@cloudflare/vitest-plugin/types"
     ],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx"
